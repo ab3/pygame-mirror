@@ -6,7 +6,7 @@ Pygame currently supports only Linux and v4l2 cameras.
 The Bayer to RGB function is based on:
  Sonix SN9C101 based webcam basic I/F routines
  Copyright (C) 2004 Takafumi Mizuno <taka-qce@ls-a.jp>
- 
+
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions
  are met:
@@ -125,7 +125,7 @@ get_image
 captures an image as a Surface
 Camera.get_image(Surface = None): return Surface
 
-Pulls an image off of the buffer as an RGB Surface.  It can optionally reuse an 
+Pulls an image off of the buffer as an RGB Surface.  It can optionally reuse an
 existing Surface to save time.  The bit depth of the surface is either 24bits or
 the same as the optionally supplied Surface.
 <END>

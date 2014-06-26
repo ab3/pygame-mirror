@@ -143,9 +143,9 @@ static PyObject* movie_rewind(PyObject* self, PyObject* args)
             RAISE(PyExc_SDLError, "Movie object invalid");
 
         Py_BEGIN_ALLOW_THREADS
-        movieobj->movie = ffmovie_reopen(movieobj->movie);        
+        movieobj->movie = ffmovie_reopen(movieobj->movie);
         Py_END_ALLOW_THREADS
-        
+
         if(!movieobj->movie)
             RAISE(PyExc_SDLError, "Error handling movie source for rewind");
 	RETURN_NONE
@@ -164,7 +164,7 @@ static PyObject* movie_set_volume(PyObject* self, PyObject* args)
 {
 	FFMovie* movie = PyMovie_AsFFMovie(self);
 	float value;
-    
+
 	if(!PyArg_ParseTuple(args, "f", &value))
 		return NULL;
         if(!movie)
@@ -199,7 +199,7 @@ static PyObject* movie_set_display(PyObject* self, PyObject* args)
 	PyObject* surfobj, *posobj=NULL;
         SDL_Rect* sdlrect, sdltemp;
 	GAME_Rect *rect, temp;
-    
+
 	if(!PyArg_ParseTuple(args, "O|O", &surfobj, &posobj))
 		return NULL;
         if(!movie)
@@ -230,7 +230,7 @@ static PyObject* movie_set_display(PyObject* self, PyObject* args)
                 else
 			return RAISE(PyExc_TypeError, "Invalid position argument");
 
-            Py_BEGIN_ALLOW_THREADS            
+            Py_BEGIN_ALLOW_THREADS
             ffmovie_setdisplay(movie, surf, sdlrect);
             Py_END_ALLOW_THREADS
 	}
@@ -404,7 +404,7 @@ static PyObject* movie_skip(PyObject* self, PyObject* args)
             RAISE(PyExc_SDLError, "Movie object invalid");
 
         movie->time_offset -= seconds;
-        
+
 	return PyInt_FromLong(movie->context != NULL);
 }
 
@@ -446,7 +446,7 @@ static PyMethodDef movie_builtins[] =
 static void movie_dealloc(PyObject* self)
 {
 	FFMovie* movie = PyMovie_AsFFMovie(self);
- 
+
         if(movie) {
             Py_BEGIN_ALLOW_THREADS
             ffmovie_close(movie);
@@ -555,7 +555,7 @@ static PyObject* Movie(PyObject* self, PyObject* arg)
 
 		movie = ffmovie_open(name);
 	}
-        
+
 	if(!movie)
 		return RAISE(PyExc_SDLError, "Cannot create Movie object");
 
@@ -642,7 +642,7 @@ void initmovieext(void)
 	if (PyErr_Occurred ()) {
 	    return;
 	}
-    
+
 	/* type preparation */
 	PyType_Init(PyMovie_Type);
 
@@ -669,7 +669,7 @@ void initmovieext(void)
 	if (PyErr_Occurred ()) {
 	    return;
 	}
-    
+
     PyGame_RegisterQuit(autoquit);
 }
 

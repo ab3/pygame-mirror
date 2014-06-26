@@ -26,21 +26,21 @@ attribute assigned.
 
 The groups are designed for high efficiency in removing and adding Sprites
 to them. They also allow cheap testing to see if a Sprite already exists in
-a Group. A given Sprite can exist in any number of groups. A game could use 
-some groups to control object rendering, and a completely separate set of 
-groups to control interaction or player movement. Instead of adding type 
-attributes or bools to a derived Sprite class, consider keeping the 
-Sprites inside organized Groups. This will allow for easier lookup later 
+a Group. A given Sprite can exist in any number of groups. A game could use
+some groups to control object rendering, and a completely separate set of
+groups to control interaction or player movement. Instead of adding type
+attributes or bools to a derived Sprite class, consider keeping the
+Sprites inside organized Groups. This will allow for easier lookup later
 in the game.
 
 Sprites and Groups manage their relationships with the add() and remove()
-methods. These methods can accept a single or multiple targets for 
-membership.  The default initializers for these classes also takes a 
-single or list of targets for initial membership. It is safe to repeatedly 
+methods. These methods can accept a single or multiple targets for
+membership.  The default initializers for these classes also takes a
+single or list of targets for initial membership. It is safe to repeatedly
 add and remove the same Sprite from a Group.
 
-While it is possible to design sprite and group classes that don't derive 
-from the Sprite and AbstractGroup classes below, it is strongly recommended 
+While it is possible to design sprite and group classes that don't derive
+from the Sprite and AbstractGroup classes below, it is strongly recommended
 that you extend those when you add a Sprite or Group class.
 
 Sprites are not thread safe.  So lock them yourself if using threads.
@@ -51,9 +51,9 @@ Sprite
 simple base class for visible game objects
 pygame.sprite.Sprite(*groups): return Sprite
 
-The base class for visible game objects. Derived classes will want to 
-override the Sprite.update() and assign a Sprite.image and 
-Sprite.rect attributes.  The initializer can accept any number of 
+The base class for visible game objects. Derived classes will want to
+override the Sprite.update() and assign a Sprite.image and
+Sprite.rect attributes.  The initializer can accept any number of
 Group instances to be added to.
 
 When subclassing the Sprite, be sure to call the base initializer before
@@ -69,7 +69,7 @@ The default implementation of this method does nothing; it's just a
 convenient "hook" that you can override. This method is called by
 Group.update() with whatever arguments you give it.
 
-There is no need to use this method if not using the convenience 
+There is no need to use this method if not using the convenience
 method by the same name in the Group class.
 <END>
 
@@ -133,8 +133,8 @@ pygame.sprite.DirtySprite(*groups): return DirtySprite
 Extra DirtySprite attributes with their default values:
 
 dirty = 1
-    if set to 1, it is repainted and then set to 0 again 
-    if set to 2 then it is always dirty ( repainted each frame, 
+    if set to 1, it is repainted and then set to 0 again
+    if set to 2 then it is always dirty ( repainted each frame,
     flag is not reset)
     0 means that it is not dirty and therefor not repainted again
 
@@ -142,15 +142,15 @@ blendmode = 0
     its the special_flags argument of blit, blendmodes
 
 source_rect = None
-    source rect to use, remember that it is relative to 
+    source rect to use, remember that it is relative to
     topleft (0,0) of self.image
 
 visible = 1
-    normally 1, if set to 0 it will not be repainted 
+    normally 1, if set to 0 it will not be repainted
     (you must set it dirty too to be erased from screen)
 
 layer = 0
-    (READONLY value, it is read when adding it to the 
+    (READONLY value, it is read when adding it to the
     LayeredRenderGroup, for details see doc of LayeredRenderGroup)
 <SECTION>
 
@@ -164,7 +164,7 @@ container class for many Sprites
 pygame.sprite.Group(*sprites): return Group
 
 A simple container for Sprite objects. This class can be inherited to
-create containers with more specific behaviors. The constructor takes any 
+create containers with more specific behaviors. The constructor takes any
 number of Sprite arguments to add to the Group. The group supports the
 following standard Python operations:
 
@@ -173,7 +173,7 @@ following standard Python operations:
     bool test if any Sprites are contained
     iter    iterate through all the Sprites
 
-The Sprites in the Group are not ordered, so drawing and iterating the 
+The Sprites in the Group are not ordered, so drawing and iterating the
 Sprites is in no particular order.
 <SECTION>
 
@@ -209,7 +209,7 @@ Group.add(*sprites): return None
 Add any number of Sprites to this Group. This will only add Sprites that are
 not already members of the Group.
 
-Each sprite argument can also be a iterator containing Sprites. 
+Each sprite argument can also be a iterator containing Sprites.
 <END>
 
 
@@ -221,7 +221,7 @@ Group.remove(*sprites): return None
 Remove any number of Sprites from the Group. This will only remove Sprites
 that are already members of the Group.
 
-Each sprite argument can also be a iterator containing Sprites. 
+Each sprite argument can also be a iterator containing Sprites.
 <END>
 
 
@@ -231,10 +231,10 @@ test if a Group contains Sprites
 Group.has(*sprites): return None
 
 Return True if the Group contains all of the given sprites. This is similar to
-using the "in" operator on the Group ("if sprite in group: ..."), which tests if 
+using the "in" operator on the Group ("if sprite in group: ..."), which tests if
 a single Sprite belongs to a Group.
 
-Each sprite argument can also be a iterator containing Sprites. 
+Each sprite argument can also be a iterator containing Sprites.
 <END>
 
 
@@ -326,9 +326,9 @@ OrderedUpdates
 RenderUpdates class that draws Sprites in order of addition
 pygame.sprite.OrderedUpdates(*spites): return OrderedUpdates
 
-This class derives from pygame.sprite.RenderUpdates(). It maintains 
-the order in which the Sprites were added to the Group for rendering. 
-This makes adding and removing Sprites from the Group a little slower 
+This class derives from pygame.sprite.RenderUpdates(). It maintains
+the order in which the Sprites were added to the Group for rendering.
+This makes adding and removing Sprites from the Group a little slower
 than regular Groups.
 <END>
 
@@ -337,7 +337,7 @@ than regular Groups.
 LayeredUpdates
 LayeredUpdates Group handles layers, that draws like OrderedUpdates.
 pygame.sprite.LayeredUpdates(*spites, **kwargs): return LayeredUpdates
-    
+
 This group is fully compatible with pygame.sprite.Sprite.
 
 You can set the default layer through kwargs using 'default_layer'
@@ -345,7 +345,7 @@ and an integer for the layer. The default layer is 0.
 
 If the sprite you add has an attribute layer then that layer will
 be used.
-If the **kwarg contains 'layer' then the sprites passed will be 
+If the **kwarg contains 'layer' then the sprites passed will be
 added to that layer (overriding the sprite.layer attribute).
 If neither sprite has attribute layer nor **kwarg then the default
 layer is used to add the sprites.
@@ -359,9 +359,9 @@ add
 add a sprite or sequence of sprites to a group
 LayeredUpdates.add(*sprites, **kwargs): return None
 
-If the sprite(s) have an attribute layer then that is used 
-for the layer. If **kwargs contains 'layer' then the sprite(s) 
-will be added to that argument (overriding the sprite layer 
+If the sprite(s) have an attribute layer then that is used
+for the layer. If **kwargs contains 'layer' then the sprite(s)
+will be added to that argument (overriding the sprite layer
 attribute). If neither is passed then the sprite(s) will be
 added to the default layer.
 <END>
@@ -424,7 +424,7 @@ sprite must have been added to the renderer. It is not checked.
 
 
 get_layer_of_sprite
-returns the layer that sprite is currently in. 
+returns the layer that sprite is currently in.
 LayeredUpdates.get_layer_of_sprite(sprite): return layer
 
 If the sprite is not found then it will return the default layer.
@@ -482,7 +482,7 @@ It uses linear search and the sprites are not removed from layer.
 <END>
 
 
- 
+
 switch_layer
 switches the sprites from layer1 to layer2
 LayeredUpdates.switch_layer(layer1_nr, layer2_nr): return None
@@ -496,21 +496,21 @@ The layers number must exist, it is not checked.
 LayeredDirty
 LayeredDirty Group is for DirtySprites.  Subclasses LayeredUpdates.
 pygame.sprite.LayeredDirty(*spites, **kwargs): return LayeredDirty
-    
-This group requires pygame.sprite.DirtySprite or any sprite that 
-has the following attributes: 
+
+This group requires pygame.sprite.DirtySprite or any sprite that
+has the following attributes:
     image, rect, dirty, visible, blendmode (see doc of DirtySprite).
 
-It uses the dirty flag technique and is therefore faster than the 
-pygame.sprite.RenderUpdates if you have many static sprites.  It 
-also switches automatically between dirty rect update and full 
+It uses the dirty flag technique and is therefore faster than the
+pygame.sprite.RenderUpdates if you have many static sprites.  It
+also switches automatically between dirty rect update and full
 screen drawing, so you do no have to worry what would be faster.
 
 Same as for the pygame.sprite.Group.
 You can specify some additional attributes through kwargs:
     _use_update: True/False   default is False
     _default_layer: default layer where sprites without a layer are added.
-    _time_threshold: treshold time for switching between dirty rect mode 
+    _time_threshold: treshold time for switching between dirty rect mode
         and fullscreen mode, defaults to 1000./80  == 1000./fps
 
 New in pygame 1.8.0
@@ -522,7 +522,7 @@ draw
 draw all sprites in the right order onto the passed surface.
 LayeredDirty.draw(surface, bgd=None): return Rect_list
 
-You can pass the background too. If a background is already set, 
+You can pass the background too. If a background is already set,
 then the bgd argument has no effect.
 <END>
 
@@ -602,15 +602,15 @@ of each Sprite.
 The dokill argument is a bool. If set to True, all Sprites that collide
 will be removed from the Group.
 
-The collided argument is a callback function used to calculate if two sprites 
-are colliding. it should take two sprites as values, and return a bool 
-value indicating if they are colliding. If collided is not passed, all sprites 
-must have a "rect" value, which is a rectangle of the sprite area, which will 
-be used to calculate the collision. 
+The collided argument is a callback function used to calculate if two sprites
+are colliding. it should take two sprites as values, and return a bool
+value indicating if they are colliding. If collided is not passed, all sprites
+must have a "rect" value, which is a rectangle of the sprite area, which will
+be used to calculate the collision.
 
-collided callables: 
-    collide_rect, collide_rect_ratio, collide_circle, 
-    collide_circle_ratio, collide_mask 
+collided callables:
+    collide_rect, collide_rect_ratio, collide_circle,
+    collide_circle_ratio, collide_mask
 <END>
 
 
@@ -634,10 +634,10 @@ collide_rect_ratio
 collision detection between two sprites, using rects scaled to a ratio.
 pygame.sprite.collide_rect_ratio(ratio): return collided_callable
 
-A callable class that checks for collisions between two sprites, 
+A callable class that checks for collisions between two sprites,
 using a scaled version of the sprites rects.
 
-Is created with a ratio, the instance is then intended to be passed 
+Is created with a ratio, the instance is then intended to be passed
 as a collided callback function to the *collide functions.
 
 A ratio is a floating point number - 1.0 is the same size, 2.0 is twice as
@@ -671,10 +671,10 @@ collide_circle_ratio
 collision detection between two sprites, using circles scaled to a ratio.
 pygame.sprite.collide_circle_ratio(ratio): return collided_callable
 
-A callable class that checks for collisions between two sprites, 
+A callable class that checks for collisions between two sprites,
 using a scaled version of the sprites radius.
 
-Is created with a floating point ratio, the instance is then intended 
+Is created with a floating point ratio, the instance is then intended
 to be passed as a collided callback function to the *collide functions.
 
 A ratio is a floating point number - 1.0 is the same size, 2.0 is twice as

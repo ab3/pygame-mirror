@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -66,7 +66,7 @@
 <p>The pygame package represents the top-level package for others to use. Pygame itself is broken into many submodules, but this does not affect programs that use Pygame. </p>
 <p>As a convenience, most of the top-level variables in pygame have been placed inside a module named <tt>'pygame.locals'</tt>. This is meant to be used with 'from <tt>pygame.locals</tt> import *', in addition to 'import pygame'. </p>
 <p>When you 'import pygame' all available pygame submodules are automatically imported. Be aware that some of the pygame modules are considered "optional", and may not be available. In that case, Pygame will provide a placeholder object instead of the module, which can be used to test for availability. </p>
-<!--COMMENTS:pygame--> &nbsp;<br> 
+<!--COMMENTS:pygame--> &nbsp;<br>
 
 
 <a name="pygame.init">
@@ -76,7 +76,7 @@
 <p>Initialize all imported Pygame modules. No exceptions will be raised if a module fails, but the total number if successful and failed inits will be returned as a tuple. You can always initialize individual modules manually, but <tt>pygame.init</tt> is a convenient way to get everything started. The init() functions for individual modules will raise exceptions when they fail. </p>
 <p>You may want to initalise the different modules seperately to speed up your program or to not use things your game does not. </p>
 <p>It is safe to call this init() more than once: repeated calls will have no effect. This is true even if you have <tt><a href="pygame.html#pygame.quit">pygame.quit</a> - <font size=-1>uninitialize all pygame modules</font></tt> all the modules. </p>
-<!--COMMENTS:pygame.init--> &nbsp;<br> 
+<!--COMMENTS:pygame.init--> &nbsp;<br>
 <br></ul>
 
 
@@ -86,7 +86,7 @@
   <tt>pygame.quit(): return None</tt><br>
 <p>Uninitialize all pygame modules that have previously been initialized. When the Python interpreter shuts down, this method is called regardless, so your program should not need it, except when it wants to terminate its pygame resources and continue. It is safe to call this function more than once: repeated calls have no effect. </p>
 <p>Note, that <tt>pygame.quit</tt> will not exit your program. Consider letting your program end in the same way a normal python program will end. </p>
-<!--COMMENTS:pygame.quit--> &nbsp;<br> 
+<!--COMMENTS:pygame.quit--> &nbsp;<br>
 <br></ul>
 
 
@@ -96,7 +96,7 @@
   <tt>raise pygame.error, message</tt><br>
 <p>This exception is raised whenever a pygame or <tt>SDL</tt> operation fails. You can catch any anticipated problems and deal with the error. The exception is always raised with a descriptive message about the problem. </p>
 <p>Derived from the RuntimeError exception, which can also be used to catch these raised errors. </p>
-<!--COMMENTS:pygame.error--> &nbsp;<br> 
+<!--COMMENTS:pygame.error--> &nbsp;<br>
 <br></ul>
 
 
@@ -105,7 +105,7 @@
   <i>get the current error message</i><br>
   <tt>pygame.get_error(): return errorstr</tt><br>
 <p><tt>SDL</tt> maintains an internal error message. This message will usually be given to you when <tt>pygame.error</tt> is raised. You will rarely need to call this function. </p>
-<!--COMMENTS:pygame.get_error--> &nbsp;<br> 
+<!--COMMENTS:pygame.get_error--> &nbsp;<br>
 <br></ul>
 
 
@@ -114,7 +114,7 @@
   <i>set the current error message</i><br>
   <tt>pygame.set_error(error_msg): return None</tt><br>
 <p><tt>SDL</tt> maintains an internal error message. This message will usually be given to you when <tt>pygame.error</tt> is raised. You will rarely need to call this function. </p>
-<!--COMMENTS:pygame.set_error--> &nbsp;<br> 
+<!--COMMENTS:pygame.set_error--> &nbsp;<br>
 <br></ul>
 
 
@@ -124,7 +124,7 @@
   <tt>pygame.get_sdl_version(): return major, minor, patch</tt><br>
 <p>Returns the three version numbers of the <tt>SDL</tt> library. This version is built at compile time. It can be used to detect which features may not be available through Pygame. </p>
 <p>get_sdl_version is new in pygame <tt>1.7.0</tt> </p>
-<!--COMMENTS:pygame.get_sdl_version--> &nbsp;<br> 
+<!--COMMENTS:pygame.get_sdl_version--> &nbsp;<br>
 <br></ul>
 
 
@@ -134,7 +134,7 @@
   <tt>pygame.get_sdl_byteorder(): return int</tt><br>
 <p>Returns the byte order of the <tt>SDL</tt> library. It returns <tt>LIL_ENDIAN</tt> for little endian byte order and <tt>BIG_ENDIAN</tt> for big endian byte order. </p>
 <p>get_sdl_byteorder is new in pygame <tt>1.8</tt> </p>
-<!--COMMENTS:pygame.get_sdl_byteorder--> &nbsp;<br> 
+<!--COMMENTS:pygame.get_sdl_byteorder--> &nbsp;<br>
 <br></ul>
 
 
@@ -143,7 +143,7 @@
   <i>register a function to be called when pygame quits</i><br>
   <tt>register_quit(callable): return None</tt><br>
 <p>When <tt>pygame.quit</tt> is called, all registered quit functions are called. Pygame modules do this automatically when they are initializing. This function is not be needed for regular pygame users. </p>
-<!--COMMENTS:pygame.register_quit--> &nbsp;<br> 
+<!--COMMENTS:pygame.register_quit--> &nbsp;<br>
 <br></ul>
 
 
@@ -156,7 +156,7 @@
   <tr><td><a href="pygame.html#pygame.version.vernum">pygame.version.vernum</a> - <font size=-1>tupled integers of the version</font></td><td>tupled integers of the version</td></tr>
 </table></small></ul>
 <p>This module is automatically imported into the pygame package and offers a few variables to check with version of pygame has been imported. </p>
-<!--COMMENTS:pygame.version--> &nbsp;<br> 
+<!--COMMENTS:pygame.version--> &nbsp;<br>
 
 
 <a name="pygame.version.ver">
@@ -164,7 +164,7 @@
   <i>version number as a string</i><br>
   <tt>pygame.version.ver = '1.2'</tt><br>
 <p>This is the version represented as a string. It can contain a micro release number as well, <tt>e.g.</tt>, <tt>'1.5.2'</tt> </p>
-<!--COMMENTS:pygame.version.ver--> &nbsp;<br> 
+<!--COMMENTS:pygame.version.ver--> &nbsp;<br>
 <br></ul>
 
 
@@ -177,7 +177,7 @@
         print 'Warning, older version of Pygame (%s)' %  pygame.version.ver
         disable_advanced_features = True
 </pre>
-<!--COMMENTS:pygame.version.vernum--> &nbsp;<br> 
+<!--COMMENTS:pygame.version.vernum--> &nbsp;<br>
 <br></ul>
 <br></ul>
 <br></ul>

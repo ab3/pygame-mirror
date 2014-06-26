@@ -3,7 +3,7 @@ pygame module for clipboard support.
 
 The scrap module is for getting and putting stuff from the clipboard.
 So you can copy and paste things between pygame, and other application
-types. It defines some basic own data types 
+types. It defines some basic own data types
 
   SCRAP_PPM
   SCRAP_PBM
@@ -116,7 +116,7 @@ into the clipboard.
   fp.close ()
   # Now you can acquire the image data from the clipboard in other
   # applications.
-  
+
   pygame.scrap.put (SCRAP_TEXT, "A text to copy")
   pygame.scrap.put ("Plain text", "A text to copy")
 <END>

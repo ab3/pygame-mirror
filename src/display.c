@@ -72,7 +72,7 @@ display_resource (char *filename)
         (imagemodule, load_basicfunc_name);
     if (!load_basicfunc)
         goto display_resource_end;
-	
+
     fresult = PyObject_CallFunction (resourcefunc, "s", filename);
     if (!fresult)
         goto display_resource_end;
@@ -227,7 +227,7 @@ vidinfo_getattr (PyObject *self, char *name)
         return PyInt_FromLong (current_h);
     else if (!strcmp (name, "current_w"))
         return PyInt_FromLong (current_w);
-    
+
     return RAISE (PyExc_AttributeError, "does not exist in vidinfo");
 }
 
@@ -352,7 +352,7 @@ get_wm_info (PyObject* self)
     tmp = PyCObject_FromVoidPtr (info.info.x11.lock_func, NULL);
     PyDict_SetItemString (dict, "lock_func", tmp);
     Py_DECREF (tmp);
-    
+
     tmp = PyCObject_FromVoidPtr (info.info.x11.unlock_func, NULL);
     PyDict_SetItemString (dict, "unlock_func", tmp);
     Py_DECREF (tmp);
@@ -396,7 +396,7 @@ get_wm_info (PyObject* self)
     PyDict_SetItemString (dict, "data", tmp);
     Py_DECREF (tmp);
 #endif
-		
+
     return dict;
 }
 
@@ -477,8 +477,8 @@ set_mode (PyObject* self, PyObject* arg)
     {
         SDL_version versioninfo;
         SDL_VERSION (&versioninfo);
-        if (!(versioninfo.major > 1 || 
-             (versioninfo.major == 1 && versioninfo.minor > 2) || 
+        if (!(versioninfo.major > 1 ||
+             (versioninfo.major == 1 && versioninfo.minor > 2) ||
              (versioninfo.major == 1 && versioninfo.minor == 2 && versioninfo.patch >= 10 )))
         {
             return RAISE (PyExc_SDLError, "Cannot set 0 sized display mode");
@@ -1093,8 +1093,8 @@ MODINIT_DEFINE (display)
 #if PY3
     module = PyModule_Create (&_module);
 #else
-    module = Py_InitModule3 (MODPREFIX "display", 
-                             _display_methods, 
+    module = Py_InitModule3 (MODPREFIX "display",
+                             _display_methods,
                              DOC_PYGAMEDISPLAY);
 #endif
     if (module == NULL) {

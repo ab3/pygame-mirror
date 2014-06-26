@@ -183,10 +183,10 @@ write_png (char *file_name, png_bytep *rows, int w, int h, int colortype,
     png_init_io (png_ptr, fp);
 
     doing = "write header";
-    png_set_IHDR (png_ptr, info_ptr, w, h, bitdepth, colortype, 
-                  PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE, 
+    png_set_IHDR (png_ptr, info_ptr, w, h, bitdepth, colortype,
+                  PNG_INTERLACE_NONE, PNG_COMPRESSION_TYPE_BASE,
                   PNG_FILTER_TYPE_BASE);
-    
+
     doing = "write info";
     png_write_info (png_ptr, info_ptr);
 
@@ -338,7 +338,7 @@ int write_jpeg (char *file_name, unsigned char** image_buffer,  int image_width,
      */
     /* cinfo.optimize_coding = FALSE;
      */
-  
+
     jpeg_set_defaults (&cinfo);
     jpeg_set_quality (&cinfo, quality, TRUE);
 
@@ -481,7 +481,7 @@ int SaveJPEG (SDL_Surface *surface, char *file) {
 
 #endif /* end if JPEGLIB_H */
 
-/* NOTE XX HACK TODO FIXME: this opengltosdl is also in image.c  
+/* NOTE XX HACK TODO FIXME: this opengltosdl is also in image.c
    need to share it between both.
 */
 
@@ -498,7 +498,7 @@ opengltosdl (void)
 
     GL_glReadPixels_Func p_glReadPixels= NULL;
 
-    p_glReadPixels = (GL_glReadPixels_Func) SDL_GL_GetProcAddress("glReadPixels"); 
+    p_glReadPixels = (GL_glReadPixels_Func) SDL_GL_GetProcAddress("glReadPixels");
 
     surf = SDL_GetVideoSurface ();
 
@@ -691,8 +691,8 @@ MODINIT_DEFINE (imageext)
 #if PY3
     module = PyModule_Create (&_module);
 #else
-    module = Py_InitModule3(MODPREFIX "imageext", 
-                            _imageext_methods, 
+    module = Py_InitModule3(MODPREFIX "imageext",
+                            _imageext_methods,
                             _imageext_doc);
 #endif
     MODINIT_RETURN (module);

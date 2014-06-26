@@ -21,7 +21,7 @@ QUICKTIME = -I/System/Library/Frameworks/QuickTime.framework/Versions/Current/He
 IMAGECOMPRESSION = -lI -lm -la -lg -le -lC -lo -lm -lp -lr -le -ls -ls -li -lo -ln
 
 DEBUG = -C-W -C-Wall
-#DEBUG = 
+#DEBUG =
 
 #the following modules are optional. you will want to compile
 #everything you can, but you can ignore ones you don't have
@@ -40,8 +40,8 @@ movie src/movie.c $(SDL) $(SMPEG) $(DEBUG)
 _camera src/_camera.c src/camera_v4l2.c src/camera_v4l.c src/camera_mac.m $(SDL) $(DEBUG)
 #pypm src/pypm.c $(SDL) $(PORTMIDI) $(PORTTIME) $(DEBUG)
 
-GFX = src/SDL_gfx/SDL_gfxPrimitives.c 
-#GFX = src/SDL_gfx/SDL_gfxBlitFunc.c src/SDL_gfx/SDL_gfxPrimitives.c 
+GFX = src/SDL_gfx/SDL_gfxPrimitives.c
+#GFX = src/SDL_gfx/SDL_gfxBlitFunc.c src/SDL_gfx/SDL_gfxPrimitives.c
 gfxdraw src/gfxdraw.c $(SDL) $(GFX) $(DEBUG)
 
 

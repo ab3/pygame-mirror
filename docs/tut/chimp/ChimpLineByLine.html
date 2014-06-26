@@ -4,19 +4,19 @@ TUTORIAL:Line by Line Descriptions of the Chimp Example
   <title>Pygame Tutorials - Line By Line Chimp Example</title>
 </head>
   <body>
-             
+
 <h1 align="center"><font size="-1">Pygame Tutorials</font><br>
      Line By Line Chimp</h1>
-           
+
 <h2 align="center">by Pete Shinners<br>
      <font size="-1">pete@shinners.org</font></h2>
-           
+
 <h3 align="center">Revision 2.2, June 17, 2004</h3>
       <br>
      <br>
-             
+
 <h2>Introduction</h2>
-       In the <i>pygame</i> examples there is a simple example named, "chimp". 
+       In the <i>pygame</i> examples there is a simple example named, "chimp".
   This example simulates a punchable monkey moving around a small screen with
   promises of riches and reward. The example itself is very simple, and a
 bit thin on errorchecking code. This example program demonstrates many of
@@ -29,14 +29,14 @@ files, rendering TTF text, and basic event and mouse handling. <br>
   the size of the original example, but now gives us much more to look at,
  as well as code the I can recommend reusing for your own projects.<br>
     <br>
-      This tutorial will go through the code block by block. Explaining how 
- the  code works. There will also be mention of how the code could be improved 
+      This tutorial will go through the code block by block. Explaining how
+ the  code works. There will also be mention of how the code could be improved
  and what errorchecking could help out. <br>
      &nbsp;<br>
-      This is an exellent tutorial for people getting their first look at 
+      This is an exellent tutorial for people getting their first look at
 the  <i> pygame</i> code. Once <i>pygame</i> is fully installed, you can find
-and run the chimp demo for yourself in the examples directory.        
-<p align="center">     
+and run the chimp demo for yourself in the examples directory.
+<p align="center">
 <table border="1" bgcolor="#ddcc88" cellpadding="8">
        <tbody>
          <tr>
@@ -46,21 +46,21 @@ ad,   its the screenshot)</font><br>
            <br>
       <a href="chimp.py.html">Full Source</a> </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      </p>
         <br>
-           
+
 <h2>Import Modules</h2>
        This is the code that imports all the needed modules into your program.
   It also checks for the availability of some of the optional pygame modules.<br>
     <br>
-            
+
 <table border="1" bgcolor="#ddcc88">
       <tbody>
         <tr>
-          <td>              
+          <td>
 <pre>import os, sys
 import pygame
 from pygame.locals import *
@@ -70,8 +70,8 @@ if not pygame.mixer: print 'Warning, sound disabled'
 </pre>
         </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
     First, we import the standard "os" and "sys" python modules. These allow
@@ -81,9 +81,9 @@ if not pygame.mixer: print 'Warning, sound disabled'
 it imports all the modules belonging to pygame. Some pygame modules are optional,
 and if they aren't found, their value is set to "None".<br>
       <br>
-      There is a special <i>pygame</i> module named "locals". This module 
+      There is a special <i>pygame</i> module named "locals". This module
  contains  a subset of <i>pygame</i>. The members of this module are commonly
- used constants  and functions that have proven useful to put into your program's 
+ used constants  and functions that have proven useful to put into your program's
  global namespace.  This locals module includes functions like "Rect" to create
  a rectangle object,  and many constants like "QUIT, HWSURFACE" that are
 used  to interact with the rest of <i>pygame</i>. Importing the locals module
@@ -94,16 +94,16 @@ not to  import it, all the members  of locals are always available in the
     Lastly, we decide to print a nice warning message if the font or sound
 modules in pygame are not available.<br>
        <br>
-           
+
 <h2>Loading Resources</h2>
     Here we have two functions we can use to load images and sounds. We will
   look at each function individually in this section.<br>
     <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>        
+           <td>
 <pre>def load_image(name, colorkey=None):
     fullname = os.path.join('data', name)
     try:
@@ -119,8 +119,8 @@ modules in pygame are not available.<br>
     return image, image.get_rect()
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
       This function takes the name of an image to load. It also optionally
@@ -146,7 +146,7 @@ white.   You can also pass a value of -1 as the colorkey. In this case the
 function   will lookup the color at the topleft pixel of the image, and use
 that color   for the colorkey.<br>
         <br>
-       
+
 <table border="1" bgcolor="#ddcc88">
       <tbody>
         <tr><td>
@@ -164,8 +164,8 @@ that color   for the colorkey.<br>
     return sound</pre>
           </td>
         </tr>
-               
-  </tbody>    
+
+  </tbody>
 </table>
     <br>
     Next is the function to load a sound file. The first thing this function
@@ -179,17 +179,17 @@ any  extra error checking.<br>
 load  the sound file inside a try/except block. Then we simply return the
 loaded  Sound object.<br>
     <br>
-       
+
 <h2>Game Object Classes</h2>
-    Here we create two classes to represent the objects in our game. Almost 
- all the logic for the game goes into these two classes. We will look over 
+    Here we create two classes to represent the objects in our game. Almost
+ all the logic for the game goes into these two classes. We will look over
  them one at a time here.<br>
     <br>
-       
+
 <table border="1" bgcolor="#ddcc88">
       <tbody>
         <tr>
-          <td>                            
+          <td>
 <pre>class Fist(pygame.sprite.Sprite):
     """moves a clenched fist on the screen, following the mouse"""
     def __init__(self):
@@ -216,8 +216,8 @@ loaded  Sound object.<br>
         self.punching = 0</pre>
           </td>
         </tr>
-               
-  </tbody>    
+
+  </tbody>
 </table>
     <br>
     Here we create a class to represent the players fist. It is derived from
@@ -236,11 +236,11 @@ the  variables  for the sprite. The update() method for the fist moves the
 fist  to the location  of the mouse pointer. It also offsets the fist position
 slightly if the fist  is in the "punching" state.<br>
     <br>
-    The following two functions punch() and unpunch() change the punching 
+    The following two functions punch() and unpunch() change the punching
 state  for the fist. The punch() method also returns a true value if the fist
 is  colliding with the given target sprite.<br>
     <br>
-       
+
 <table border="1" bgcolor="#ddcc88">
       <tbody>
         <tr>
@@ -294,8 +294,8 @@ is  colliding with the given target sprite.<br>
             self.original = self.image</pre>
       </td>
         </tr>
-               
-  </tbody>    
+
+  </tbody>
 </table>
     <br>
     The chimp class is doing a little more work than the fist, but nothing
@@ -305,7 +305,7 @@ This  class is also derived from the base Sprite class, and is initialized
 the same as the fist. While initializing, the class also sets the attribute
 "area"  to be the size of the display screen.<br>
     <br>
-    The update function for the chimp simply looks at the current "dizzy" 
+    The update function for the chimp simply looks at the current "dizzy"
 state,  which is true when the monkey is spinning from a punch. It calls either
 the  _spin or _walk method. These functions are prefixed with an underscore.
  This  is just a standard python idiom which suggests these methods should
@@ -337,29 +337,29 @@ old image, so it rotates without moving.<br>
     The last method is punched() which tells the sprite to enter its dizzy
  state.  This will cause the image to start spinning. It also makes a copy
  of the current image named "original".<br>
-           
+
 <h2>Initialize Everything</h2>
        Before we can do much with pygame, we need to make sure its modules
  are  initialized. In this case we will also open a simple graphics window.
  Now  we are in the main() function of the program, which actually runs everything.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
       <pre>pygame.init()
 screen = pygame.display.set_mode((468, 60))
 pygame.display.set_caption('Monkey Fever')
 pygame.mouse.set_visible(0)</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
        The first line to initialize <i>pygame</i> takes care of a bit of
-work   for us. It checks through the imported <i>pygame</i> modules and attempts 
+work   for us. It checks through the imported <i>pygame</i> modules and attempts
   to initialize each one of them. It is possible to go back and check if modules
   failed to initialize, but we won't bother here. It is also possible to
 take   a lot more control and initialize each specific module by hand. That
@@ -378,24 +378,24 @@ do our bidding.  Usually the cursor defaults to visible, so there is no need
 to really set  the state unless we want to hide it.<br>
       <br>
        <br>
-           
+
 <h2>Create The Background</h2>
        Our program is going to have text message in the background. It would
   be nice for us to create a single surface to represent the background and
   repeatedly use that. The first step is to create the surface.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
       <pre>background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((250, 250, 250))</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
        This creates a new surface for us that is the same size as the display
@@ -403,21 +403,21 @@ background.fill((250, 250, 250))</pre>
  convert with no arguments will make sure our background is the same format
  as the display window, which will give us the fastest results.<br>
       <br>
-      We also fill the entire background with a solid white-ish color. Fill 
+      We also fill the entire background with a solid white-ish color. Fill
  takes  an RGB triplet as the color argument.<br>
       <br>
        <br>
-           
+
 <h2>Put Text On The Background, Centered</h2>
        Now that we have a background surface, lets get the text rendered
-to  it. We only do this if we see the pygame.font module has imported properly. 
+to  it. We only do this if we see the pygame.font module has imported properly.
  If not, we just skip this section.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
       <tbody>
         <tr>
-          <td>                            
+          <td>
 <pre>if pygame.font:
     font = pygame.font.Font(None, 36)
     text = font.render("Pummel The Chimp, And Win $$$", 1, (10, 10, 10))
@@ -425,8 +425,8 @@ to  it. We only do this if we see the pygame.font module has imported properly.
     background.blit(text, textpos)</pre>
 </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
        As you see, there are a couple steps to getting this done. First we
@@ -451,22 +451,22 @@ easily   assign it to the screen center.<br>
    image.<br>
       <br>
        <br>
-           
+
 <h2>Display The Background While Setup Finishes</h2>
-       We still have a black window on the screen. Lets show our background 
+       We still have a black window on the screen. Lets show our background
  while  we wait for the other resources to load.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
       <pre>screen.blit(background, (0, 0))
 pygame.display.flip()<br></pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
        This will blit our entire background onto the display window. The
@@ -480,15 +480,15 @@ the flip() function works nicely because it simply handles the entire window
 area and handles both singlebuffered and doublebufferes surfaces.<br>
       <br>
        <br>
-           
+
 <h2>Prepare Game Object</h2>
     Here we create all the objects that the game is going to need.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
 <pre>whiff_sound = load_sound('whiff.wav')
 punch_sound = load_sound('punch.wav')
 chimp = Chimp()
@@ -497,15 +497,15 @@ allsprites = pygame.sprite.RenderPlain((fist, chimp))
 clock = pygame.time.Clock()</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
     First we load two sound effects using the load_sound function we defined
   above. Then we create an instance of each of our sprite classes. And lastly
   we create a sprite Group which will contain all our sprites.<br>
       <br>
-    We actually use a special sprite group named RenderPlain. This sprite 
+    We actually use a special sprite group named RenderPlain. This sprite
 group  can draw all the sprites it contains to the screen. It is called RenderPlain
   because there are actually more advanced Render groups. But for our game,
   we just need simple drawing. We create the group named "allsprites" by
@@ -517,21 +517,21 @@ we won't need  to.<br>
 we will use it in the main loop of our game to make sure it doesn't run too fast.
     <br>
        <br>
-              
+
 <h2>Main Loop</h2>
        Nothing much here, just an infinite loop.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
       <pre>while 1:
     clock.tick(60)</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
        All games run in some sort of loop. The usual order of things is to
@@ -543,15 +543,15 @@ that this  example  is no different.<br>
 doesn't run faster than 60 frames per second.<br>
       <br>
        <br>
-           
+
 <h2>Handle All Input Events</h2>
        This is an extremely simple case of working the event queue.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
 <pre>for event in pygame.event.get():
     if event.type == QUIT:
         return
@@ -567,8 +567,8 @@ doesn't run faster than 60 frames per second.<br>
         fist.unpunch()</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
    First we get all the available Events from pygame and loop through each
@@ -576,69 +576,69 @@ doesn't run faster than 60 frames per second.<br>
  the escape key. In these cases we just return from the main() function and
  the program cleanly ends.<br>
       <br>
-   Next we just check to see if the mouse button was pressed or released. 
-If  the button was pressed, we ask the fist object if it has collided with 
-the  chimp. We play the appropriate sound effect, and if the monkey was hit, 
+   Next we just check to see if the mouse button was pressed or released.
+If  the button was pressed, we ask the fist object if it has collided with
+the  chimp. We play the appropriate sound effect, and if the monkey was hit,
 we  tell him to start spinning (by calling his punched() method).<br>
       <br>
        <br>
-           
+
 <h2>Update the Sprites</h2>
    <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
       <pre>allsprites.update()</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
-   Sprite groups have an update() method, which simply calls the update method 
- for all the sprites it contains. Each of the objects will move around, depending 
- on which state they are in. This is where the chimp will move one step side 
+   Sprite groups have an update() method, which simply calls the update method
+ for all the sprites it contains. Each of the objects will move around, depending
+ on which state they are in. This is where the chimp will move one step side
  to side, or spin a little farther if he was recently punched.<br>
       <br>
        <br>
    <br>
-                
+
 <h2>Draw The Entire Scene</h2>
    Now that all the objects are in the right place, time to draw them.<br>
        <br>
-         
+
 <table border="1" bgcolor="#ddcc88">
        <tbody>
          <tr>
-           <td>                                   
+           <td>
 <pre>screen.blit(background, (0, 0))
 allsprites.draw(screen)
 pygame.display.flip()</pre>
            </td>
          </tr>
-                   
-  </tbody>     
+
+  </tbody>
 </table>
      <br>
-   The first blit call will draw the background onto the entire screen. This 
+   The first blit call will draw the background onto the entire screen. This
  erases everything we saw from the previous frame (slightly inefficient, but
- good enough for this game). Next we call the draw() method of the sprite 
-container. Since this sprite container is really an instance of the "DrawPlain" 
-sprite group, it knows how to draw our sprites. Lastly, we flip() the contents 
-of pygame's software double buffer to the screen. This makes everything we've 
+ good enough for this game). Next we call the draw() method of the sprite
+container. Since this sprite container is really an instance of the "DrawPlain"
+sprite group, it knows how to draw our sprites. Lastly, we flip() the contents
+of pygame's software double buffer to the screen. This makes everything we've
  drawn visible all at once.<br>
    <br>
       <br>
-           
+
 <h2>Game Over</h2>
        User has quit, time to clean up<br>
       <br>
       Cleaning up the running game in <i>pygame</i> is extremely simple.
-In  fact  since all variables are automatically destructed, we really don't 
+In  fact  since all variables are automatically destructed, we really don't
 have  to  do anything.<br>
       <br>
-         
+
 </body>
 </html>

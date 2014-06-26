@@ -178,7 +178,7 @@ cd_play (PyObject* self, PyObject* args)
     if (cdrom->track[track].type != SDL_AUDIO_TRACK) {
         return RAISE (PyExc_SDLError, "CD track type is not audio");
     }
-	
+
     /*validate times*/
     if (playforever) {
         end = start;
@@ -186,7 +186,7 @@ cd_play (PyObject* self, PyObject* args)
     else if (start == end && start != 0.0f) {
         Py_RETURN_NONE;
     }
-	
+
     startframe = (int)(start * CD_FPS);
     numframes = 0;
     if (startframe < 0) {
@@ -638,8 +638,8 @@ MODINIT_DEFINE (cdrom)
 #if PY3
     module = PyModule_Create (&_module);
 #else
-    module = Py_InitModule3 (MODPREFIX "cdrom", 
-                             _cdrom_methods, 
+    module = Py_InitModule3 (MODPREFIX "cdrom",
+                             _cdrom_methods,
                              DOC_PYGAMECDROM);
 #endif
     if (module == NULL) {

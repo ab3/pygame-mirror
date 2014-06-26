@@ -118,7 +118,7 @@ opengltosdl ()
 
     GL_glReadPixels_Func p_glReadPixels = NULL;
 
-    p_glReadPixels = (GL_glReadPixels_Func) SDL_GL_GetProcAddress("glReadPixels"); 
+    p_glReadPixels = (GL_glReadPixels_Func) SDL_GL_GetProcAddress("glReadPixels");
 
     surf = SDL_GetVideoSurface ();
 
@@ -133,7 +133,7 @@ opengltosdl ()
         return NULL;
     }
 
-    /* 
+    /*
     GL_UNSIGNED_BYTE = 5121
     GL_RGB = 6407
     */
@@ -290,7 +290,7 @@ image_save (PyObject* self, PyObject* arg)
         SDL_FreeSurface (temp);
     else
         PySurface_Unprep (surfobj);
-        
+
     if (result == -2)
         return imgext;
     if (result == -1)
@@ -703,7 +703,7 @@ image_tostring (PyObject* self, PyObject* arg)
                     {
                         data[0] = (char) ((((color & Rmask) >> Rshift) << Rloss)*alpha/255);
                         data[1] = (char) ((((color & Gmask) >> Gshift) << Gloss)*alpha/255);
-                        data[2] = (char) ((((color & Bmask) >> Bshift) << Bloss)*alpha/255);                    
+                        data[2] = (char) ((((color & Bmask) >> Bshift) << Bloss)*alpha/255);
                     }
                     data[3] = (char) alpha;
                     data += 4;
@@ -787,7 +787,7 @@ image_tostring (PyObject* self, PyObject* arg)
                     {
                         data[1] = (char) ((((color & Rmask) >> Rshift) << Rloss)*alpha/255);
                         data[2] = (char) ((((color & Gmask) >> Gshift) << Gloss)*alpha/255);
-                        data[3] = (char) ((((color & Bmask) >> Bshift) << Bloss)*alpha/255);                    
+                        data[3] = (char) ((((color & Bmask) >> Bshift) << Bloss)*alpha/255);
                     }
                     data[0] = (char) alpha;
                     data += 4;
@@ -959,7 +959,7 @@ image_frombuffer (PyObject* self, PyObject* arg)
     /* breaking constness here, we should really not change this string */
     if (PyObject_AsCharBuffer (buffer, (const char**)&data, &len) == -1)
         return NULL;
-        
+
     if (!strcmp (format, "P"))
     {
         if (len != w * h)

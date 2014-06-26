@@ -14,7 +14,7 @@ function takes several arguments. All those arguments have been stored in a
 single tuple you can call like this:
 
    >>> pygame.mouse.set_cursor(*pygame.cursors.arrow)
-   
+
 This module also contains a few cursors as formatted strings. You'll need to
 pass these to pygame.cursors.compile() function before you can use them. The
 example call would look like this:

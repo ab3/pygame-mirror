@@ -3,10 +3,10 @@
  * Numeric dependency obsolete.
  */
 
-/* 
+/*
  * Legal Notice
  *
- * *** Legal Notice for all LLNL-contributed files *** 
+ * *** Legal Notice for all LLNL-contributed files ***
  *
  * Copyright (c) 1996. The Regents of the University of California. All
  * rights reserved.
@@ -22,7 +22,7 @@
  * between the U.S. Department of Energy and The Regents of the
  * University of California for the operation of UC LLNL.
  *
- * DISCLAIMER 
+ * DISCLAIMER
  *
  * This software was prepared as an account of work sponsored by an
  * agency of the United States Government. Neither the United States

@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -59,7 +59,7 @@
 </table></small></ul>
 <p>Useful for fast pixel perfect collision detection. <tt>A</tt> Mask uses 1bit per pixel to store which parts collide. </p>
 <p>New in pygame <tt>1.8</tt>. </p>
-<!--COMMENTS:pygame.mask--> &nbsp;<br> 
+<!--COMMENTS:pygame.mask--> &nbsp;<br>
 
 
 <a name="pygame.mask.from_surface">
@@ -69,7 +69,7 @@
 <p>Makes the transparent parts of the Surface not set, and the opaque parts set. </p>
 <p>The alpha of each pixel is checked to see if it is greater than the given threshold. </p>
 <p>If the Surface is color keyed, then threshold is not used. </p>
-<!--COMMENTS:pygame.mask.from_surface--> &nbsp;<br> 
+<!--COMMENTS:pygame.mask.from_surface--> &nbsp;<br>
 <br></ul>
 
 
@@ -78,7 +78,7 @@
   <i>Creates a mask by thresholding Surfaces</i><br>
   <tt>pygame.mask.from_surface(Surface, color, threshold = (0,0,0,255), othersurface = None) -> Mask</tt><br>
 <p>This is a more featureful method of getting a Mask from a Surface. If supplied with only one Surface, all pixels within the threshold of the supplied color are set in the Mask. If given the optional othersurface, all pixels in Surface that are within the threshold of the corresponding pixel in othersurface are set in the Mask. </p>
-<!--COMMENTS:pygame.mask.from_threshold--> &nbsp;<br> 
+<!--COMMENTS:pygame.mask.from_threshold--> &nbsp;<br>
 <br></ul>
 
 
@@ -108,16 +108,16 @@
   <tr><td><a href="mask.html#Mask.connected_components">Mask.connected_components</a> - <font size=-1>Returns a list of masks of connected regions of pixels.</font></td><td>Returns a list of masks of connected regions of pixels.</td></tr>
   <tr><td><a href="mask.html#Mask.get_bounding_rects">Mask.get_bounding_rects</a> - <font size=-1>Returns a list of bounding rects of regions of set pixels.</font></td><td>Returns a list of bounding rects of regions of set pixels.</td></tr>
 </table></small></ul>
- &nbsp;<br> 
-<!--COMMENTS:pygame.mask.Mask--> &nbsp;<br> 
+ &nbsp;<br>
+<!--COMMENTS:pygame.mask.Mask--> &nbsp;<br>
 
 
 <a name="Mask.get_size">
 <big><b>Mask.get_size</big></b><br><ul>
   <i>Returns the size of the mask.</i><br>
   <tt>Mask.get_size() -> width,height</tt><br>
- &nbsp;<br> 
-<!--COMMENTS:Mask.get_size--> &nbsp;<br> 
+ &nbsp;<br>
+<!--COMMENTS:Mask.get_size--> &nbsp;<br>
 <br></ul>
 
 
@@ -126,7 +126,7 @@
   <i>Returns nonzero if the bit at (x,y) is set.</i><br>
   <tt>Mask.get_at((x,y)) -> int</tt><br>
 <p>Coordinates start at (0,0) is top left - just like Surfaces. </p>
-<!--COMMENTS:Mask.get_at--> &nbsp;<br> 
+<!--COMMENTS:Mask.get_at--> &nbsp;<br>
 <br></ul>
 
 
@@ -134,8 +134,8 @@
 <big><b>Mask.set_at</big></b><br><ul>
   <i>Sets the position in the mask given by x and y.</i><br>
   <tt>Mask.set_at((x,y),value)</tt><br>
- &nbsp;<br> 
-<!--COMMENTS:Mask.set_at--> &nbsp;<br> 
+ &nbsp;<br>
+<!--COMMENTS:Mask.set_at--> &nbsp;<br>
 <br></ul>
 
 
@@ -152,7 +152,7 @@
    |  |
    :  :
 </pre>
-<!--COMMENTS:Mask.overlap--> &nbsp;<br> 
+<!--COMMENTS:Mask.overlap--> &nbsp;<br>
 <br></ul>
 
 
@@ -164,7 +164,7 @@
 <pre> dx = Mask.overlap_area(othermask,(x+1,y)) - Mask.overlap_area(othermask,(x-1,y))
  dy = Mask.overlap_area(othermask,(x,y+1)) - Mask.overlap_area(othermask,(x,y-1))
 </pre>
-<!--COMMENTS:Mask.overlap_area--> &nbsp;<br> 
+<!--COMMENTS:Mask.overlap_area--> &nbsp;<br>
 <br></ul>
 
 
@@ -173,7 +173,7 @@
   <i>Returns a mask of the overlapping pixels</i><br>
   <tt>Mask.overlap_mask(othermask, offset) -> Mask</tt><br>
 <p>Returns a Mask the size of the original Mask containing only the overlapping pixels between Mask and othermask. </p>
-<!--COMMENTS:Mask.overlap_mask--> &nbsp;<br> 
+<!--COMMENTS:Mask.overlap_mask--> &nbsp;<br>
 <br></ul>
 
 
@@ -182,7 +182,7 @@
   <i>Sets all bits to 1</i><br>
   <tt>Mask.fill()</tt><br>
 <p>Sets all bits in a Mask to 1. </p>
-<!--COMMENTS:Mask.fill--> &nbsp;<br> 
+<!--COMMENTS:Mask.fill--> &nbsp;<br>
 <br></ul>
 
 
@@ -191,7 +191,7 @@
   <i>Sets all bits to 0</i><br>
   <tt>Mask.clear()</tt><br>
 <p>Sets all bits in a Mask to 0. </p>
-<!--COMMENTS:Mask.clear--> &nbsp;<br> 
+<!--COMMENTS:Mask.clear--> &nbsp;<br>
 <br></ul>
 
 
@@ -200,7 +200,7 @@
   <i>Flips the bits in a Mask</i><br>
   <tt>Mask.invert()</tt><br>
 <p>Flips all of the bits in a Mask, so that the set pixels turn to unset pixels and the unset pixels turn to set pixels. </p>
-<!--COMMENTS:Mask.invert--> &nbsp;<br> 
+<!--COMMENTS:Mask.invert--> &nbsp;<br>
 <br></ul>
 
 
@@ -209,7 +209,7 @@
   <i>Resizes a mask</i><br>
   <tt>Mask.scale((x, y)) -> Mask</tt><br>
 <p>Returns a new Mask of the Mask scaled to the requested size. </p>
-<!--COMMENTS:Mask.scale--> &nbsp;<br> 
+<!--COMMENTS:Mask.scale--> &nbsp;<br>
 <br></ul>
 
 
@@ -218,7 +218,7 @@
   <i>Draws a mask onto another</i><br>
   <tt>Mask.draw(othermask, offset)</tt><br>
 <p>Performs a bitwise <tt>OR</tt>, drawing othermask onto Mask. </p>
-<!--COMMENTS:Mask.draw--> &nbsp;<br> 
+<!--COMMENTS:Mask.draw--> &nbsp;<br>
 <br></ul>
 
 
@@ -227,7 +227,7 @@
   <i>Erases a mask from another</i><br>
   <tt>Mask.erase(othermask, offset)</tt><br>
 <p>Erases all pixels set in othermask from Mask. </p>
-<!--COMMENTS:Mask.erase--> &nbsp;<br> 
+<!--COMMENTS:Mask.erase--> &nbsp;<br>
 <br></ul>
 
 
@@ -236,7 +236,7 @@
   <i>Returns the number of set pixels</i><br>
   <tt>Mask.count() -> pixels</tt><br>
 <p>Returns the number of set pixels in the Mask. </p>
-<!--COMMENTS:Mask.count--> &nbsp;<br> 
+<!--COMMENTS:Mask.count--> &nbsp;<br>
 <br></ul>
 
 
@@ -245,7 +245,7 @@
   <i>Returns the centroid of the pixels in a Mask</i><br>
   <tt>Mask.centroid() -> (x, y)</tt><br>
 <p>Finds the centroid, the center of pixel mass, of a Mask. Returns a coordinate tuple for the centroid of the Mask. In the event the Mask is empty, it will return (0,0). </p>
-<!--COMMENTS:Mask.centroid--> &nbsp;<br> 
+<!--COMMENTS:Mask.centroid--> &nbsp;<br>
 <br></ul>
 
 
@@ -254,7 +254,7 @@
   <i>Returns the orientation of the pixels</i><br>
   <tt>Mask.angle() -> theta</tt><br>
 <p>Finds the approximate orientation of the pixels in the image from -90 to 90 degrees. This works best if performed on one connected component of pixels. It will return <tt>0.0</tt> on an empty Mask. </p>
-<!--COMMENTS:Mask.angle--> &nbsp;<br> 
+<!--COMMENTS:Mask.angle--> &nbsp;<br>
 <br></ul>
 
 
@@ -263,7 +263,7 @@
   <i>list of points outlining an object</i><br>
   <tt>Mask.outline(every = 1) -> [(x,y), (x,y) ...]</tt><br>
 <p>Returns a list of points of the outline of the first object it comes across in a Mask. For this to be useful, there should probably only be one connected component of pixels in the Mask. The every option allows you to skip pixels in the outline. For example, setting it to 10 would return a list of every 10th pixel in the outline. </p>
-<!--COMMENTS:Mask.outline--> &nbsp;<br> 
+<!--COMMENTS:Mask.outline--> &nbsp;<br>
 <br></ul>
 
 
@@ -273,7 +273,7 @@
   <tt>Mask.convolve(othermask, outputmask = None, offset = (0,0)) -> Mask</tt><br>
 <p>Returns a mask with the (i-offset[0],j-offset[1]) bit set if shifting othermask so that it's lower right corner pixel is at (i,j) would cause it to overlap with self. </p>
 <p>If an outputmask is specified, the output is drawn onto outputmask and outputmask is returned. Otherwise a mask of size <tt>self.get_size()</tt> + <tt>othermask.get_size()</tt> - (1,1) is created. </p>
-<!--COMMENTS:Mask.convolve--> &nbsp;<br> 
+<!--COMMENTS:Mask.convolve--> &nbsp;<br>
 <br></ul>
 
 
@@ -282,7 +282,7 @@
   <i>Returns a mask of a connected region of pixels.</i><br>
   <tt>Mask.connected_component((x,y) = None) -> Mask</tt><br>
 <p>This uses the <tt>SAUF</tt> algorithm to find a connected component in the Mask. It checks 8 point connectivity. By default, it will return the largest connected component in the image. Optionally, a coordinate pair of a pixel can be specified, and the connected component containing it will be returned. In the event the pixel at that location is not set, the returned Mask will be empty. The Mask returned is the same size as the original Mask. </p>
-<!--COMMENTS:Mask.connected_component--> &nbsp;<br> 
+<!--COMMENTS:Mask.connected_component--> &nbsp;<br>
 <br></ul>
 
 
@@ -291,7 +291,7 @@
   <i>Returns a list of masks of connected regions of pixels.</i><br>
   <tt>Mask.connected_components(min = 0) -> [Masks]</tt><br>
 <p>Returns a list of masks of connected regions of pixels. An optional minimum number of pixels per connected region can be specified to filter out noise. </p>
-<!--COMMENTS:Mask.connected_components--> &nbsp;<br> 
+<!--COMMENTS:Mask.connected_components--> &nbsp;<br>
 <br></ul>
 
 
@@ -300,7 +300,7 @@
   <i>Returns a list of bounding rects of regions of set pixels.</i><br>
   <tt>Mask.get_bounding_rects() -> Rects</tt><br>
 <p>This gets a bounding rect of connected regions of set pixels. <tt>A</tt> bounding rect is one for which each of the connected pixels is inside the rect. </p>
-<!--COMMENTS:Mask.get_bounding_rects--> &nbsp;<br> 
+<!--COMMENTS:Mask.get_bounding_rects--> &nbsp;<br>
 <br></ul>
 <br></ul>
 <br></ul>

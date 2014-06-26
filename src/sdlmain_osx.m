@@ -52,7 +52,7 @@ static NSString *getApplicationName(void)
     dict = (const NSDictionary *)CFBundleGetInfoDictionary(CFBundleGetMainBundle());
     if (dict)
         appName = [dict objectForKey: @"CFBundleName"];
-    
+
     if (![appName length])
         appName = [[NSProcessInfo processInfo] processName];
 
@@ -66,7 +66,7 @@ _WMEnable(PyObject* self)
     OSErr err;
     const char* nameString;
     NSString* nameNSString;
-    
+
     err = CPSGetCurrentProcess(&psn);
     if (err == 0)
     {
@@ -80,7 +80,7 @@ _WMEnable(PyObject* self)
         	err = CPSSetFrontProcess(&psn);
         	if (err != 0)
         	{
-            	return RAISE (PyExc_SDLError, "CPSSetFrontProcess failed");        		
+            	return RAISE (PyExc_SDLError, "CPSSetFrontProcess failed");
         	}
         }
         else
@@ -92,7 +92,7 @@ _WMEnable(PyObject* self)
     {
     	return RAISE (PyExc_SDLError, "CPSGetCurrentProcess failed");
     }
-    
+
     Py_RETURN_TRUE;
 }
 
@@ -143,10 +143,10 @@ static void setApplicationMenu(void)
     NSMenuItem *menuItem;
     NSString *title;
     NSString *appName;
-    
+
     appName = getApplicationName();
     appleMenu = [[NSMenu alloc] initWithTitle:@""];
-    
+
 
     title = [@"About " stringByAppendingString:appName];
     [appleMenu addItemWithTitle:title action:@selector(orderFrontStandardAboutPanel:) keyEquivalent:@""];
@@ -166,7 +166,7 @@ static void setApplicationMenu(void)
     title = [@"Quit " stringByAppendingString:appName];
     [appleMenu addItemWithTitle:title action:@selector(terminate:) keyEquivalent:@"q"];
 
-    
+
     menuItem = [[NSMenuItem alloc] initWithTitle:@"" action:nil keyEquivalent:@""];
     [menuItem setSubmenu:appleMenu];
     [[NSApp mainMenu] addItem:menuItem];
@@ -184,15 +184,15 @@ static void setupWindowMenu(void)
     NSMenuItem  *menuItem;
 
     windowMenu = [[NSMenu alloc] initWithTitle:@"Window"];
-    
+
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Minimize" action:@selector(performMiniaturize:) keyEquivalent:@"m"];
     [windowMenu addItem:menuItem];
     [menuItem release];
-    
+
     windowMenuItem = [[NSMenuItem alloc] initWithTitle:@"Window" action:nil keyEquivalent:@""];
     [windowMenuItem setSubmenu:windowMenu];
     [[NSApp mainMenu] addItem:windowMenuItem];
-    
+
     [NSApp setWindowsMenu:windowMenu];
 
     [windowMenu release];
@@ -228,7 +228,7 @@ _InstallNSApplication(PyObject* self, PyObject* arg)
     [NSApp activateIgnoringOtherApps:true];
 
     HasInstalledApplication = 1;
-    
+
 	Py_RETURN_TRUE;
 }
 

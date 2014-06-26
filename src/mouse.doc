@@ -33,14 +33,14 @@ Returns a sequence of booleans representing the state of all the mouse
 buttons. A true value means the mouse is currently being pressed at the
 time of the call.
 
-Note, to get all of the mouse events it is better to use either 
+Note, to get all of the mouse events it is better to use either
  pygame.event.wait() or pygame.event.get() and check all of those events
 to see if they are MOUSEBUTTONDOWN, MOUSEBUTTONUP, or MOUSEMOTION.
 
 Note, that on X11 some XServers use middle button emulation.  When you click
 both buttons 1 and 3 at the same time a 2 button event can be emitted.
 
-Note, remember to call pygame.event.get() before this function.  Otherwise 
+Note, remember to call pygame.event.get() before this function.  Otherwise
 it will not work.
 <END>
 
@@ -120,11 +120,11 @@ the cursor width and height. Hotspot is a sequence containing the cursor
 hotspot position. xormasks is a sequence of bytes containing the cursor
 xor data masks. Lastly is andmasks, a sequence of bytes containting the
 cursor bitmask data.
- 
+
 Width must be a multiple of 8, and the mask arrays must be the correct
 size for the given width and height. Otherwise an exception is raised.
 
-See the pygame.cursor module for help creating default and custom 
+See the pygame.cursor module for help creating default and custom
 masks for the system cursor.
 <END>
 

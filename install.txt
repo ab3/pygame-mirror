@@ -146,5 +146,5 @@ Mac OS X Compiling Info
 Up to date instructions for compiling on Mac OS X can be found here:
 http://pygame.org/wiki/MacCompile
 Reply
-		
+
 Forward

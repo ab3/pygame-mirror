@@ -193,7 +193,7 @@ static PyObject*
 get_sdl_version (PyObject* self)
 {
     const SDL_version *v;
-	
+
     v = SDL_Linked_Version ();
     return Py_BuildValue ("iii", v->major, v->minor, v->patch);
 }
@@ -473,7 +473,7 @@ pygame_parachute (int sig)
 {
 #ifdef HAVE_SIGNAL_H
     char* signaltype;
-    
+
     signal (sig, SIG_DFL);
     switch (sig)
     {
@@ -504,7 +504,7 @@ pygame_parachute (int sig)
 
     _quit ();
     Py_FatalError (signaltype);
-#endif    
+#endif
 }
 
 
@@ -542,8 +542,8 @@ install_parachute (void)
         if (ohandler != SIG_DFL)
             signal (fatal_signals[i], ohandler);
     }
-    
-#if defined(SIGALRM) && defined(HAVE_SIGACTION) 
+
+#if defined(SIGALRM) && defined(HAVE_SIGACTION)
     {/* Set SIGALRM to be ignored -- necessary on Solaris */
         struct sigaction action, oaction;
         /* Set SIG_IGN action */
@@ -555,7 +555,7 @@ install_parachute (void)
             sigaction (SIGALRM, &oaction, NULL);
     }
 #endif
-#endif    
+#endif
     return;
 }
 
@@ -577,7 +577,7 @@ uninstall_parachute (void)
         if (ohandler != pygame_parachute)
             signal (fatal_signals[i], ohandler);
     }
-#endif    
+#endif
 }
 
 /* bind functions to python */
@@ -714,7 +714,7 @@ MODINIT_DEFINE(base)
         }
         Py_DECREF (rval);
         Py_AtExit (atexit_quit);
-#ifdef HAVE_SIGNAL_H    
+#ifdef HAVE_SIGNAL_H
         install_parachute ();
 #endif
 

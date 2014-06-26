@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -83,7 +83,7 @@
  <li><tt> JPEG </tt></li>
 </ul>
 <p><tt>PNG</tt>, <tt>JPEG</tt> saving new in pygame <tt>1.8</tt>. </p>
-<!--COMMENTS:pygame.image--> &nbsp;<br> 
+<!--COMMENTS:pygame.image--> &nbsp;<br>
 
 
 <a name="pygame.image.load">
@@ -99,7 +99,7 @@
 <p>You should use <tt>os.path.join()</tt> for compatibility. </p>
 <pre>  eg. asurf = pygame.image.load(os.path.join('data', 'bla.png'))
 </pre>
-<!--COMMENTS:pygame.image.load--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.load--> &nbsp;<br>
 <br></ul>
 
 
@@ -109,7 +109,7 @@
   <tt>pygame.image.save(Surface, filename): return None</tt><br>
 <p>This will save your Surface as either a <tt>BMP</tt>, <tt>TGA</tt>, <tt>PNG</tt>, or <tt>JPEG</tt> image. If the filename extension is unrecognized it will default to <tt>TGA</tt>. Both <tt>TGA</tt>, and <tt>BMP</tt> file formats create uncompressed files. </p>
 <p><tt>PNG</tt>, <tt>JPEG</tt> saving new in pygame <tt>1.8</tt>. </p>
-<!--COMMENTS:pygame.image.save--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.save--> &nbsp;<br>
 <br></ul>
 
 
@@ -118,7 +118,7 @@
   <i>test if extended image formats can be loaded</i><br>
   <tt>pygame.image.get_extended(): return bool</tt><br>
 <p>If pygame is built with extended image formats this function will return True. It is still not possible to determine which formats will be available, but generally you will be able to load them all. </p>
-<!--COMMENTS:pygame.image.get_extended--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.get_extended--> &nbsp;<br>
 <br></ul>
 
 
@@ -137,7 +137,7 @@
  <li> RGBA_PREMULT, 32bit image with colors scaled by alpha channel </li>
  <li> ARGB_PREMULT, 32bit image with colors scaled by alpha channel, alpha channel first </li>
 </ul>
-<!--COMMENTS:pygame.image.tostring--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.tostring--> &nbsp;<br>
 <br></ul>
 
 
@@ -148,7 +148,7 @@
 <p>This function takes arguments similar to <tt><a href="image.html#pygame.image.tostring">pygame.image.tostring</a> - <font size=-1>transfer image to string buffer</font></tt>. The size argument is a pair of numbers representing the width and height. Once the new Surface is created you can destroy the string buffer. </p>
 <p>The size and format image must compute the exact same size as the passed string buffer. Otherwise an exception will be raised. </p>
 <p>See the <tt><a href="image.html#pygame.image.frombuffer">pygame.image.frombuffer</a> - <font size=-1>create a new Surface that shares data inside a string buffer</font></tt> method for a potentially faster way to transfer images into Pygame. </p>
-<!--COMMENTS:pygame.image.fromstring--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.fromstring--> &nbsp;<br>
 <br></ul>
 
 
@@ -158,7 +158,7 @@
   <tt>pygame.image.frombuffer(string, size, format): return Surface</tt><br>
 <p>Create a new Surface that shares pixel data directly from the string buffer. This method takes the same arguments as <tt><a href="image.html#pygame.image.fromstring">pygame.image.fromstring</a> - <font size=-1>create new Surface from a string buffer</font></tt>, but is unable to vertically flip the source data. </p>
 <p>This will run much faster than <tt>pygame.image.fromstring</tt>, since no pixel data must be allocated and copied. </p>
-<!--COMMENTS:pygame.image.frombuffer--> &nbsp;<br> 
+<!--COMMENTS:pygame.image.frombuffer--> &nbsp;<br>
 <br></ul>
 <br></ul>
 

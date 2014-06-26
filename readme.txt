@@ -53,7 +53,7 @@
      Marcus Von Appen - many changes, and fixes, 1.7.1+ freebsd maintainer.
 
      Lenard Lindstrom - the 1.8+ windows maintainer.
-     
+
      Brian Fisher - for svn auto builder, bug tracker and many contributions.
 
      Rene Dudfield - many changes, and fixes, 1.7+ release manager/maintainer.
@@ -96,20 +96,20 @@
    James Mazer, Lalo Martins, Timothy Stranex, Chad Lester, Matthias
    Spiller, Bo Jangeborg, Dmitry Borisov, Campbell Barton, Diego Essaya,
    Eyal Lotem, Regis Desgroppes, Emmanuel Hainry, Randy Kaelber
-   Matthew L Daniel, Nirav Patel, Forrest Voight, Charlie Nolan, 
+   Matthew L Daniel, Nirav Patel, Forrest Voight, Charlie Nolan,
    Frankie Robertson, John Krukoff, Lorenz Quack, Nick Irvine
 
      And our bug hunters above and beyond: Angus, Guillaume Proux, Frank
-   Raiser, Austin Henry, Kaweh Kazemi, Arturo Aldama, Mike Mulcheck, 
+   Raiser, Austin Henry, Kaweh Kazemi, Arturo Aldama, Mike Mulcheck,
    Michael Benfield, David Lau
 
    There's many more folks out there who've submitted helpful ideas, kept
    this project going, and basically made my life easer, Thanks!
 
    Many thank you's for people making documentation comments, and adding to the
-   pygame.org wiki.  
-   
-   Also many thanks for people creating games and putting them on the 
+   pygame.org wiki.
+
+   Also many thanks for people creating games and putting them on the
    pygame.org website for others to learn from and enjoy.
 
    Also a big thanks to Roger Dingledine and the crew at SEUL.ORG for our

@@ -942,7 +942,7 @@ static int set_at(SDL_Surface* surf, int x, int y, Uint32 color)
                 pixel[1]=(Uint8)(colorptr[1]*br); \
                 pixel[2]=(Uint8)(colorptr[2]*br); \
                 if(hasalpha) pixel[3] = br*255; \
-	} 
+	}
 
 /* Adapted from http://freespace.virgin.net/hugo.elias/graphics/x_wuline.htm */
 static void drawaaline(SDL_Surface* surf, Uint32 color, float x1, float y1, float x2, float y2, int blend) {

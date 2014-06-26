@@ -256,7 +256,7 @@ static PyTypeObject PyColor_Type =
     0,                          /* tp_subclasses */
     0,                          /* tp_weaklist */
     0                           /* tp_del */
-#endif    
+#endif
 };
 
 #define PyColor_Check(o) \
@@ -309,7 +309,7 @@ _get_color (PyObject *val, Uint32 *color)
         *color = (Uint32) longval;
         return 1;
     }
-    
+
     /* Failed */
     PyErr_SetString (PyExc_ValueError, "invalid color argument");
     return 0;
@@ -566,7 +566,7 @@ _color_new (PyTypeObject *type, PyObject *args, PyObject *kwds)
         PyObject *name1 = NULL, *name2 = NULL;
         if (obj1 || obj2 || obj3)
             return RAISE (PyExc_ValueError, "invalid arguments");
-        
+
         name1 = PyObject_CallMethod(obj, "replace", "(ss)", " ", "");
         if (!name1)
         {
@@ -619,7 +619,7 @@ _color_new (PyTypeObject *type, PyObject *args, PyObject *kwds)
     else
     {
         Uint32 color = 0;
-        
+
         /* Color (R,G,B[,A]) */
         if (!_get_color (obj, &color) || color > 255)
             return RAISE (PyExc_ValueError, "invalid color argument");
@@ -688,7 +688,7 @@ _color_correct_gamma (PyColor *color, PyObject *args)
     double frgba[4];
     Uint8 rgba[4];
     double _gamma;
-    
+
     if (!PyArg_ParseTuple (args, "d", &_gamma))
         return NULL;
 
@@ -849,7 +849,7 @@ _color_get_hsva (PyColor *color, void *closure)
     }
     /* Calculate S */
     hsv[1] = 100. * (maxv - minv) / maxv;
-    
+
     /* Calculate H */
     if (maxv == frgb[0])
         hsv[0] = fmod ((60 * ((frgb[1] - frgb[2]) / diff)), 360.f);
@@ -1015,7 +1015,7 @@ _color_get_hsla (PyColor *color, void *closure)
     else
         hsl[1] = diff / (2 - maxv - minv);
     hsl[1] *= 100.f;
-    
+
     /* Calculate H */
     if (maxv == frgb[0])
         hsl[0] = fmod ((60 * ((frgb[1] - frgb[2]) / diff)), 360.f);
@@ -1176,11 +1176,11 @@ _color_get_i1i2i3 (PyColor *color, void *closure)
     frgb[0] = color->r / 255.0;
     frgb[1] = color->g / 255.0;
     frgb[2] = color->b / 255.0;
-    
+
     i1i2i3[0] = (frgb[0] + frgb[1] + frgb[2]) / 3.0f;
     i1i2i3[1] = (frgb[0] - frgb[2]) / 2.0f;
     i1i2i3[2] = (2 * frgb[1] - frgb[0] - frgb[2]) / 4.0f;
- 
+
     return Py_BuildValue ("(fff)", i1i2i3[0], i1i2i3[1], i1i2i3[2]);
 }
 
@@ -1245,11 +1245,11 @@ _color_get_cmy (PyColor *color, void *closure)
     frgb[0] = color->r / 255.0;
     frgb[1] = color->g / 255.0;
     frgb[2] = color->b / 255.0;
-    
+
     cmy[0] = 1.0 - frgb[0];
     cmy[1] = 1.0 - frgb[1];
     cmy[2] = 1.0 - frgb[2];
-    
+
     return Py_BuildValue ("(fff)", cmy[0], cmy[1], cmy[2]);
 }
 
@@ -1288,7 +1288,7 @@ _color_set_cmy (PyColor *color, PyObject *value, void *closure)
         return -1;
     }
     Py_DECREF (item);
-    
+
     color->r = (Uint8) ((1.0 - cmy[0]) * 255);
     color->g = (Uint8) ((1.0 - cmy[1]) * 255);
     color->b = (Uint8) ((1.0 - cmy[2]) * 255);
@@ -1611,7 +1611,7 @@ MODINIT_DEFINE (color)
     PyObject *dict;
     PyObject *apiobj;
     static void* c_api[PYGAMEAPI_COLOR_NUMSLOTS];
-    
+
 #if PY3
     static struct PyModuleDef _module = {
         PyModuleDef_HEAD_INIT,
@@ -1644,14 +1644,14 @@ MODINIT_DEFINE (color)
     {
         MODINIT_ERROR;
     }
-    
+
     /* type preparation */
     if (PyType_Ready (&PyColor_Type) < 0)
     {
         Py_DECREF (_COLORDICT);
         MODINIT_ERROR;
     }
-    
+
     /* create the module */
 #if PY3
     module = PyModule_Create (&_module);

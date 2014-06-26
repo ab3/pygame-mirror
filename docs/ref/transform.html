@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -69,7 +69,7 @@
 </table></small></ul>
 <p><tt>A</tt> Surface transform is an operation that moves or resizes the pixels. All these functions take a Surface to operate on and return a new Surface with the results. </p>
 <p>Some of the transforms are considered destructive. These means every time they are performed they lose pixel data. Common examples of this are resizing and rotating. For this reason, it is better to retransform the original surface than to keep transforming an image multiple times. (For example, suppose you are animating a bouncing spring which expands and contracts. If you applied the size changes incrementally to the previous images, you would lose detail. Instead, always begin with the original image and scale to the desired <tt>size.)</tt> </p>
-<!--COMMENTS:pygame.transform--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform--> &nbsp;<br>
 
 
 <a name="pygame.transform.flip">
@@ -77,7 +77,7 @@
   <i>flip vertically and horizontally</i><br>
   <tt>pygame.transform.flip(Surface, xbool, ybool): return Surface</tt><br>
 <p>This can flip a Surface either vertically, horizontally, or both. Flipping a Surface is nondestructive and returns a new Surface with the same dimensions. </p>
-<!--COMMENTS:pygame.transform.flip--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.flip--> &nbsp;<br>
 <br></ul>
 
 
@@ -87,7 +87,7 @@
   <tt>pygame.transform.scale(Surface, (width, height), DestSurface = None): return Surface</tt><br>
 <p>Resizes the Surface to a new resolution. This is a fast scale operation that does not sample the results. </p>
 <p>An optional destination surface can be used, rather than have it create a new one. This is quicker if you want to repeatedly scale something. However the destination must be the same size as the (width, height) passed in. Also the destination surface must be the same format. </p>
-<!--COMMENTS:pygame.transform.scale--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.scale--> &nbsp;<br>
 <br></ul>
 
 
@@ -97,7 +97,7 @@
   <tt>pygame.transform.rotate(Surface, angle): return Surface</tt><br>
 <p>Unfiltered counterclockwise rotation. The angle argument represents degrees and can be any floating point value. Negative angle amounts will rotate clockwise. </p>
 <p>Unless rotating by 90 degree increments, the image will be padded larger to hold the new size. If the image has pixel alphas, the padded area will be transparent. Otherwise pygame will pick a color that matches the Surface colorkey or the topleft pixel value. </p>
-<!--COMMENTS:pygame.transform.rotate--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.rotate--> &nbsp;<br>
 <br></ul>
 
 
@@ -106,7 +106,7 @@
   <i>filtered scale and rotation</i><br>
   <tt>pygame.transform.rotozoom(Surface, angle, scale): return Surface</tt><br>
 <p>This is a combined scale and rotation transform. The resulting Surface will be a filtered 32-bit Surface. The scale argument is a floating point value that will be multiplied by the current resolution. The angle argument is a floating point value that represents the counterclockwise degrees to rotate. <tt>A</tt> negative rotation angle will rotate clockwise. </p>
-<!--COMMENTS:pygame.transform.rotozoom--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.rotozoom--> &nbsp;<br>
 <br></ul>
 
 
@@ -117,7 +117,7 @@
 <p>This will return a new image that is double the size of the original. It uses the AdvanceMAME Scale2X algorithm which does a 'jaggie-less' scale of bitmap graphics. </p>
 <p>This really only has an effect on simple images with solid colors. On photographic and antialiased images it will look like a regular unfiltered scale. </p>
 <p>An optional destination surface can be used, rather than have it create a new one. This is quicker if you want to repeatedly scale something. However the destination must be twice the size of the source surface passed in. Also the destination surface must be the same format. </p>
-<!--COMMENTS:pygame.transform.scale2x--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.scale2x--> &nbsp;<br>
 <br></ul>
 
 
@@ -127,7 +127,7 @@
   <tt>pygame.transform.smoothscale(Surface, (width, height), DestSurface = None): return Surface</tt><br>
 <p>Uses one of two different algorithms for scaling each dimension of the input surface as required. For shrinkage, the output pixels are area averages of the colors they cover. For expansion, a bilinear filter is used. For the amd64 and i686 architectures, optimized <tt>MMX</tt> routines are included and will run much faster than other machine types. The size is a 2 number sequence for (width, height). This function only works for 24-bit or 32-bit surfaces. An exception will be thrown if the input surface bit depth is less than 24. </p>
 <p>New in pygame <tt>1.8</tt> </p>
-<!--COMMENTS:pygame.transform.smoothscale--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.smoothscale--> &nbsp;<br>
 <br></ul>
 
 
@@ -137,7 +137,7 @@
   <tt>pygame.transform.get_smoothscale_backend(): return String</tt><br>
 <p>Shows whether or not smoothscale is using <tt>MMX</tt> or <tt>SSE</tt> acceleration. If no acceleration is available then <tt>"GENERIC"</tt> is returned. For a x86 processor the level of acceleration to use is determined at runtime. </p>
 <p>This function is provided for Pygame testing and debugging. </p>
-<!--COMMENTS:pygame.transform.get_smoothscale_backend--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.get_smoothscale_backend--> &nbsp;<br>
 <br></ul>
 
 
@@ -147,7 +147,7 @@
   <tt>pygame.transform.get_smoothscale_backend(type): return None</tt><br>
 <p>Sets smoothscale acceleration. Takes a string argument. <tt>A</tt> value of <tt>'GENERIC'</tt> turns off acceleration. <tt>'MMX'</tt> uses <tt>MMX</tt> instructions only. <tt>'SSE'</tt> allows <tt>SSE</tt> extensions as well. <tt>A</tt> value error is raised if type is not recognized or not supported by the current processor. </p>
 <p>This function is provided for Pygame testing and debugging. If smoothscale causes an invalid instruction error then it is a Pygame/SDL bug that should be reported. Use this function as a temporary fix only. </p>
-<!--COMMENTS:pygame.transform.set_smoothscale_backend--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.set_smoothscale_backend--> &nbsp;<br>
 <br></ul>
 
 
@@ -157,7 +157,7 @@
   <tt>pygame.transform.chop(Surface, rect): return Surface</tt><br>
 <p>Extracts a portion of an image. All vertical and horizontal pixels surrounding the given rectangle area are removed. The corner areas (diagonal to the rect) are then brought together. (The original image is not altered by this <tt>operation.)</tt> </p>
 <p><tt>NOTE:</tt> If you want a "crop" that returns the part of an image within a rect, you can blit with a rect to a new surface or copy a subsurface. </p>
-<!--COMMENTS:pygame.transform.chop--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.chop--> &nbsp;<br>
 <br></ul>
 
 
@@ -167,7 +167,7 @@
   <tt>pygame.transform.laplacian(Surface, DestSurface = None): return Surface</tt><br>
 <p>Finds the edges in a surface using the laplacian algorithm. </p>
 <p>New in pygame <tt>1.8</tt> </p>
-<!--COMMENTS:pygame.transform.laplacian--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.laplacian--> &nbsp;<br>
 <br></ul>
 
 
@@ -177,7 +177,7 @@
   <tt>pygame.transform.average_surfaces(Surfaces, DestSurface = None): return Surface</tt><br>
 <p>Takes a sequence of surfaces and returns a surface with average colors from each of the surfaces. </p>
 <p>New in pygame <tt>1.8</tt> </p>
-<!--COMMENTS:pygame.transform.average_surfaces--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.average_surfaces--> &nbsp;<br>
 <br></ul>
 
 
@@ -186,7 +186,7 @@
   <i>finds the average color of a surface</i><br>
   <tt>pygame.transform.average_color(Surface, Rect = None): return Color</tt><br>
 <p>Finds the average color of a Surface or a region of a surface specified by a Rect, and returns it as a Color. </p>
-<!--COMMENTS:pygame.transform.average_color--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.average_color--> &nbsp;<br>
 <br></ul>
 
 
@@ -202,7 +202,7 @@
 <p>If change_return is set to 2, the pixels set in DestSurface will be those from the first Surface. </p>
 <p>You can use a threshold of (r,g,b,a) where the r,g,b can have different thresholds. So you could use an r threshold of 40 and a blue threshold of 2 if you like. </p>
 <p>New in pygame <tt>1.8</tt> </p>
-<!--COMMENTS:pygame.transform.threshold--> &nbsp;<br> 
+<!--COMMENTS:pygame.transform.threshold--> &nbsp;<br>
 <br></ul>
 <br></ul>
 

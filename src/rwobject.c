@@ -525,7 +525,7 @@ MODINIT_DEFINE (rwobject)
 #if PY3
     module = PyModule_Create (&_module);
 #else
-    module = Py_InitModule3 (MODPREFIX "rwobject", 
+    module = Py_InitModule3 (MODPREFIX "rwobject",
                              _rwobject_methods,
                              _rwobject_doc);
 #endif

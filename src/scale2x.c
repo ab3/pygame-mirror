@@ -23,7 +23,7 @@
 /*
    This implements the AdvanceMAME Scale2x feature found on this page,
    http://advancemame.sourceforge.net/scale2x.html
-   
+
    It is an incredibly simple and powerful image doubling routine that does
    an astonishing job of doubling game graphic data while interpolating out
    the jaggies. Congrats to the AdvanceMAME team, I'm very impressed and
@@ -37,7 +37,7 @@
 #define MIN(a,b)    (((a) < (b)) ? (a) : (b))
 
 
-#define READINT24(x)      ((x)[0]<<16 | (x)[1]<<8 | (x)[2]) 
+#define READINT24(x)      ((x)[0]<<16 | (x)[1]<<8 | (x)[2])
 #define WRITEINT24(x, i)  {(x)[0]=i>>16; (x)[1]=(i>>8)&0xff; x[2]=i&0xff; }
 
 /*
@@ -49,7 +49,7 @@
 void scale2x(SDL_Surface *src, SDL_Surface *dst)
 {
 	int looph, loopw;
-	
+
 	Uint8* srcpix = (Uint8*)src->pixels;
 	Uint8* dstpix = (Uint8*)dst->pixels;
 
@@ -60,7 +60,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 
 	switch(src->format->BytesPerPixel)
 	{
-	case 1: { 
+	case 1: {
 	    	Uint8 E0, E1, E2, E3, B, D, E, F, H;
 		for(looph = 0; looph < height; ++looph)
 		{
@@ -71,7 +71,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 			    	E = *(Uint8*)(srcpix + (looph*srcpitch) + (1*loopw));
 			    	F = *(Uint8*)(srcpix + (looph*srcpitch) + (1*MIN(width-1,loopw+1)));
 			    	H = *(Uint8*)(srcpix + (MIN(height-1,looph+1)*srcpitch) + (1*loopw));
-				
+
 				E0 = D == B && B != F && D != H ? D : E;
     	    	    	    	E1 = B == F && B != D && F != H ? F : E;
 				E2 = D == H && D != B && H != F ? D : E;
@@ -83,7 +83,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 				*(Uint8*)(dstpix + (looph*2+1)*dstpitch + (loopw*2+1)*1) = E3;
 			}
 		}break;}
-	case 2: { 
+	case 2: {
 	    	Uint16 E0, E1, E2, E3, B, D, E, F, H;
 		for(looph = 0; looph < height; ++looph)
 		{
@@ -94,7 +94,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 			    	E = *(Uint16*)(srcpix + (looph*srcpitch) + (2*loopw));
 			    	F = *(Uint16*)(srcpix + (looph*srcpitch) + (2*MIN(width-1,loopw+1)));
 			    	H = *(Uint16*)(srcpix + (MIN(height-1,looph+1)*srcpitch) + (2*loopw));
-				
+
 				E0 = D == B && B != F && D != H ? D : E;
     	    	    	    	E1 = B == F && B != D && F != H ? F : E;
 				E2 = D == H && D != B && H != F ? D : E;
@@ -106,7 +106,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 				*(Uint16*)(dstpix + (looph*2+1)*dstpitch + (loopw*2+1)*2) = E3;
 			}
 		}break;}
-	case 3: { 
+	case 3: {
 	    	int E0, E1, E2, E3, B, D, E, F, H;
 		for(looph = 0; looph < height; ++looph)
 		{
@@ -117,7 +117,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 			    	E = READINT24(srcpix + (looph*srcpitch) + (3*loopw));
 			    	F = READINT24(srcpix + (looph*srcpitch) + (3*MIN(width-1,loopw+1)));
 			    	H = READINT24(srcpix + (MIN(height-1,looph+1)*srcpitch) + (3*loopw));
-				
+
 				E0 = D == B && B != F && D != H ? D : E;
     	    	    	    	E1 = B == F && B != D && F != H ? F : E;
 				E2 = D == H && D != B && H != F ? D : E;
@@ -140,7 +140,7 @@ void scale2x(SDL_Surface *src, SDL_Surface *dst)
 			    	E = *(Uint32*)(srcpix + (looph*srcpitch) + (4*loopw));
 			    	F = *(Uint32*)(srcpix + (looph*srcpitch) + (4*MIN(width-1,loopw+1)));
 			    	H = *(Uint32*)(srcpix + (MIN(height-1,looph+1)*srcpitch) + (4*loopw));
-				
+
 				E0 = D == B && B != F && D != H ? D : E;
     	    	    	    	E1 = B == F && B != D && F != H ? F : E;
 				E2 = D == H && D != B && H != F ? D : E;

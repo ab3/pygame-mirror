@@ -25,7 +25,7 @@ Will pause for a given number of milliseconds. This function sleeps the
 process to share the processor with other programs. A program that waits
 for even a few milliseconds will consume very little processor time.
 It is slightly less accurate than the pygame.time.delay() function.
- 
+
 This returns the actual number of milliseconds used.
 <END>
 
@@ -37,7 +37,7 @@ pygame.time.delay(milliseconds): return time
 
 Will pause for a given number of milliseconds. This function will use the
 processor (rather than sleeping) in order to make the delay more accurate than pygame.time.wait().
- 
+
 This returns the actual number of milliseconds used.
 <END>
 
@@ -77,12 +77,12 @@ control timer events
 This method should be called once per frame. It will compute how many
 milliseconds have passed since the previous call.
 
-If you pass the optional framerate argument the function will delay to keep 
-the game running slower than the given ticks per second.  This can be used 
-to help limit the runtime speed of a game. By calling Clock.tick(40) once 
+If you pass the optional framerate argument the function will delay to keep
+the game running slower than the given ticks per second.  This can be used
+to help limit the runtime speed of a game. By calling Clock.tick(40) once
 per frame, the program will never run at more than 40 frames per second.
 
-Note that this function uses SDL_Delay function which is not accurate 
+Note that this function uses SDL_Delay function which is not accurate
 on every platform, but does not use much cpu.  Use tick_busy_loop
 if you want an accurate timer, and don't mind chewing cpu.
 <END>
@@ -95,9 +95,9 @@ control timer events
 This method should be called once per frame. It will compute how many
 milliseconds have passed since the previous call.
 
-If you pass the optional framerate argument the function will delay to keep 
-the game running slower than the given ticks per second.  This can be used 
-to help limit the runtime speed of a game. By calling Clock.tick(40) once 
+If you pass the optional framerate argument the function will delay to keep
+the game running slower than the given ticks per second.  This can be used
+to help limit the runtime speed of a game. By calling Clock.tick(40) once
 per frame, the program will never run at more than 40 frames per second.
 
 Note that this function uses pygame.time.delay, which uses lots of cpu

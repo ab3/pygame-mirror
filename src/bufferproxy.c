@@ -148,7 +148,7 @@ static PyTypeObject PyBufferProxy_Type =
     0,                          /* tp_init */
     0,                          /* tp_alloc */
     _bufferproxy_new,           /* tp_new */
-#ifndef __SYMBIAN32__    
+#ifndef __SYMBIAN32__
     0,                          /* tp_free */
     0,                          /* tp_is_gc */
     0,                          /* tp_bases */
@@ -157,7 +157,7 @@ static PyTypeObject PyBufferProxy_Type =
     0,                          /* tp_subclasses */
     0,                          /* tp_weaklist */
     0                           /* tp_del */
-#endif    
+#endif
 };
 
 /**
@@ -266,7 +266,7 @@ _bufferproxy_write (PyBufferProxy *buffer, PyObject *args)
     memcpy (((Uint8 *)buffer->buffer) + offset, buf, (size_t) length);
 
     Py_RETURN_NONE;
-}   
+}
 
 /**** Buffer interfaces ****/
 
@@ -314,7 +314,7 @@ _bufferproxy_getwritebuf (PyBufferProxy *buffer, Py_ssize_t _index,
 {
     if (_index != 0)
     {
-        PyErr_SetString (PyExc_SystemError, 
+        PyErr_SetString (PyExc_SystemError,
                          "Accessing non-existent array segment");
         return -1;
     }

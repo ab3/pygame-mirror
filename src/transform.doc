@@ -7,7 +7,7 @@ the results.
 
 Some of the transforms are considered destructive. These means every time
 they are performed they lose pixel data. Common examples of this are resizing
-and rotating. For this reason, it is better to retransform the original surface than to 
+and rotating. For this reason, it is better to retransform the original surface than to
 keep transforming an image multiple times. (For example, suppose you are animating
 a bouncing spring which expands and contracts. If you applied the size changes
 incrementally to the previous images, you would lose detail. Instead, always
@@ -31,11 +31,11 @@ resize to new resolution
 pygame.transform.scale(Surface, (width, height), DestSurface = None): return Surface
 
 Resizes the Surface to a new resolution. This is a fast scale operation
-that does not sample the results. 
+that does not sample the results.
 
-An optional destination surface can be used, rather than have it create 
-a new one.  This is quicker if you want to repeatedly scale something.  
-However the destination must be the same size as the (width, height) passed 
+An optional destination surface can be used, rather than have it create
+a new one.  This is quicker if you want to repeatedly scale something.
+However the destination must be the same size as the (width, height) passed
 in.  Also the destination surface must be the same format.
 <END>
 
@@ -77,14 +77,14 @@ pygame.transform.scale2x(Surface, DestSurface = None): Surface
 This will return a new image that is double the size of the original. It uses
 the AdvanceMAME Scale2X algorithm which does a 'jaggie-less' scale of bitmap
 graphics.
- 
+
 This really only has an effect on simple images with solid colors. On
 photographic and antialiased images it will look like a regular unfiltered
 scale.
 
-An optional destination surface can be used, rather than have it create 
-a new one.  This is quicker if you want to repeatedly scale something.  
-However the destination must be twice the size of the source surface passed 
+An optional destination surface can be used, rather than have it create
+a new one.  This is quicker if you want to repeatedly scale something.
+However the destination must be twice the size of the source surface passed
 in.  Also the destination surface must be the same format.
 <END>
 
@@ -151,7 +151,7 @@ The corner areas (diagonal to the rect) are then brought together.
 (The original image is not altered by this operation.)
 
 NOTE: If you want a "crop" that returns the part of an image within
-a rect, you can blit with a rect to a new surface or copy a subsurface. 
+a rect, you can blit with a rect to a new surface or copy a subsurface.
 <END>
 
 
@@ -191,22 +191,22 @@ pygame.transform.threshold(DestSurface, Surface, color, threshold = (0,0,0,0), d
 
 Finds which, and how many pixels in a surface are within a threshold of a color.
 
-It can set the destination surface where all of the pixels not within the 
+It can set the destination surface where all of the pixels not within the
 threshold are changed to diff_color.  If inverse is optionally set to True, the
 pixels that are within the threshold are instead changed to diff_color.
 
 If the optional second surface is given, it is used to threshold against
 rather than the specified color.  That is, it will find each pixel in the first
 Surface that is within the threshold of the pixel at the same coordinates of
-the second Surface.  
+the second Surface.
 
-If change_return is set to 0, it can be used to just count the number of 
+If change_return is set to 0, it can be used to just count the number of
 pixels within the threshold if you set
 
-If change_return is set to 1, the pixels set in DestSurface will be 
+If change_return is set to 1, the pixels set in DestSurface will be
 those from the color.
 
-If change_return is set to 2, the pixels set in DestSurface will be 
+If change_return is set to 2, the pixels set in DestSurface will be
 those from the first Surface.
 
 You can use a threshold of (r,g,b,a) where the r,g,b can have different thresholds. So

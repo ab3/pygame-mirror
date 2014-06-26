@@ -28,8 +28,8 @@ resampling, so the mixer should be initialized to match the values of
 your audio resources.
 
 NOTE: Not to get less laggy sound, use a smaller buffer size.  The default
-is set to reduce the chance of scratchy sounds on some computers.  You can 
-change the default buffer by calling pygame.mixer.pre_init before 
+is set to reduce the chance of scratchy sounds on some computers.  You can
+change the default buffer by calling pygame.mixer.pre_init before
 pygame.mixer.init or pygame.init is called.  For example:
 pygame.mixer.pre_init(44100,-16,2, 1024)
 The default size was changed from 1024 to 3072 in pygame 1.8.
@@ -49,7 +49,7 @@ If the value is negative then signed sample values will be used. Positive
 values mean unsigned audio samples will be used. An invalid value raises
 an exception.
 
-The channels argument is used to specify whether to use mono or stereo.  1 for 
+The channels argument is used to specify whether to use mono or stereo.  1 for
 mono and 2 for stereo. No other values are supported (negative values are treated
 as 1, values greater than 2 as 2).
 
@@ -58,7 +58,7 @@ sound mixer. The default value should work for most cases. It can be
 lowered to reduce latency, but sound dropout may occur. It can be raised
 to larger values to ensure playback never skips, but it will impose latency
 on sound playback. The buffer size must be a power of two (if not it is
-rounded up to the next nearest power of 2). 
+rounded up to the next nearest power of 2).
 
 Some platforms require the pygame.mixer module
 to be initialized after the display modules have initialized. The top level
@@ -95,7 +95,7 @@ get_init
 test if the mixer is initialized
 pygame.mixer.get_init(): return (frequency, format, channels)
 
-If the mixer is initialized, this returns the playback arguments it 
+If the mixer is initialized, this returns the playback arguments it
 is using. If the mixer has not been initialized this returns None
 <END>
 
@@ -125,7 +125,7 @@ fadeout
 fade out the volume on all sounds before stopping
 pygame.mixer.fadeout(time): return None
 
-This will fade out the volume on all active channels over the time 
+This will fade out the volume on all active channels over the time
 argument in milliseconds. After the sound is muted the playback will stop.
 <END>
 
@@ -212,16 +212,16 @@ The loops argument controls how many times the sample will be repeated after
 being played the first time. A value
 of 5 means that the sound will be played once, then repeated five times, and so
 is played a total of six times. The default value (zero) means the Sound
-is not repeated, and so is only played once. If loops is set to -1 the Sound 
+is not repeated, and so is only played once. If loops is set to -1 the Sound
 will loop indefinitely (though you can still call stop() to stop it).
 
 The maxtime argument can be used to stop playback after a given number of
 milliseconds.
 
-The fade_ms argument will make the sound start playing at 0 volume and 
+The fade_ms argument will make the sound start playing at 0 volume and
 fade up to full volume over the time given. The sample may end before the
 fade-in is complete.
- 
+
 This returns the Channel object for the channel that was selected.
 <END>
 
@@ -236,7 +236,7 @@ fadeout
 stop sound playback after fading out
 Sound.fadeout(time): return None
 
-This will stop playback of the sound after fading it out over the 
+This will stop playback of the sound after fading it out over the
 time argument in milliseconds. The Sound will fade and stop on all
 actively playing channels.
 <END>

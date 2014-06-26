@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -86,7 +86,7 @@
 </pre><p>can only be used by applications, which query the clipboard for the "own_data" type. </p>
 <p><tt>EXPERIMENTAL!</tt> </p>
 <p>New in pygame <tt>1.8</tt>. Only works for Windows, <tt>X11</tt> and Mac <tt>OS</tt> <tt>X</tt> so far. On Mac <tt>OSX</tt> only text works at the moment - other types will be supported in the next release. </p>
-<!--COMMENTS:pygame.scrap--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap--> &nbsp;<br>
 
 
 <a name="pygame.scrap.init">
@@ -94,7 +94,7 @@
   <i>Initializes the scrap module.</i><br>
   <tt>scrap.init () -> None</tt><br>
 <p>Tries to initialize the scrap module and raises an exception, if it fails. Note that this module requires a set display surface, so you have to make sure, you acquired one earlier using <tt><a href="display.html#pygame.display.set_mode">pygame.display.set_mode</a> - <font size=-1>initialize a window or screen for display</font></tt>. </p>
-<!--COMMENTS:pygame.scrap.init--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.init--> &nbsp;<br>
 <br></ul>
 
 
@@ -109,7 +109,7 @@
   else:
       print "There does not seem to be text in the clipboard."
 </pre>
-<!--COMMENTS:pygame.scrap.get--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.get--> &nbsp;<br>
 <br></ul>
 
 
@@ -125,7 +125,7 @@
           # possibly text, so print it.
           print pygame.scrap.get (t)
 </pre>
-<!--COMMENTS:pygame.scrap.get_types--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.get_types--> &nbsp;<br>
 <br></ul>
 
 
@@ -143,7 +143,7 @@
   pygame.scrap.put (SCRAP_TEXT, "A text to copy")
   pygame.scrap.put ("Plain text", "A text to copy")
 </pre>
-<!--COMMENTS:pygame.scrap.put--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.put--> &nbsp;<br>
 <br></ul>
 
 
@@ -157,7 +157,7 @@
   if pygame.scrap.contains ("own_data_type"):
       print "There is stuff in the clipboard."
 </pre>
-<!--COMMENTS:pygame.scrap.contains--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.contains--> &nbsp;<br>
 <br></ul>
 
 
@@ -169,7 +169,7 @@
 <pre>  if pygame.scrap.lost ():
      print "No content from me anymore. The clipboard is used by someone else."
 </pre>
-<!--COMMENTS:pygame.scrap.lost--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.lost--> &nbsp;<br>
 <br></ul>
 
 
@@ -179,7 +179,7 @@
   <tt>scrap.set_mode(mode) -> None</tt><br>
 <p>Sets the access mode for the clipboard. This is only of interest for <tt>X11</tt> environments, where clipboard modes for mouse selections <tt>(SRAP_SELECTION)</tt> and the clipboard <tt>(SCRAP_CLIPBOARD)</tt> are available. Setting the mode to <tt>SCRAP_SELECTION</tt> in other environments will not cause any difference. </p>
 <p>If a value different from <tt>SCRAP_CLIPBOARD</tt> or <tt>SCRAP_SELECTION</tt> is passed, a ValueError will be raised. </p>
-<!--COMMENTS:pygame.scrap.set_mode--> &nbsp;<br> 
+<!--COMMENTS:pygame.scrap.set_mode--> &nbsp;<br>
 <br></ul>
 <br></ul>
 

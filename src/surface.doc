@@ -31,7 +31,7 @@ rectangle clipping. These functions mainly effect how the Surface is blitted
 to other Surfaces. The blit routines will attempt to use hardware acceleratio
  when possible, otherwise will use highly optimized software blitting methods.
 
-There are three types of transparency supported in Pygame: colorkeys, 
+There are three types of transparency supported in Pygame: colorkeys,
 surface alphas, and pixel alphas. Surface alphas can be mixed with colorkeys,
 but an image with per pixel alphas cannot use the other modes. Colorkey
 transparency makes a single color value transparent. Any pixels matching
@@ -43,7 +43,7 @@ Per pixel alphas are different because they store a transparency value for
 every pixel. This allows for the most precise transparency effects, but it
 also the slowest. Per pixel alphas cannot be mixed with surface alpha and
 colorkeys.
- 
+
 There is support for pixel access for the Surfaces. Pixel access on hardware
 surfaces is slow and not recommended. Pixels can be accessed using the get_at()
 and set_at() functions. These methods are fine for simple access, but will be
@@ -67,7 +67,7 @@ to convert between individual red, green, and blue values into a packed
 integer for that Surface.
 
 Surfaces can also reference sections of other Surfaces. These are created
-with the Surface.subsurface() method. Any change to either Surface will 
+with the Surface.subsurface() method. Any change to either Surface will
 effect the other.
 
 Each Surface contains a clipping area. By default the clip area covers the
@@ -90,10 +90,10 @@ blit. The size of the destination rectangle does not effect the blit.
 An optional area rectangle can be passed as well. This represents a smaller
 portion of the source Surface to draw.
 
-An optional special flags is for passing in 
-new in 1.8.0: 
+An optional special flags is for passing in
+new in 1.8.0:
 BLEND_ADD, BLEND_SUB, BLEND_MULT, BLEND_MIN, BLEND_MAX
-new in 1.8.1: 
+new in 1.8.1:
 BLEND_RGBA_ADD, BLEND_RGBA_SUB, BLEND_RGBA_MULT, BLEND_RGBA_MIN, BLEND_RGBA_MAX
 BLEND_RGB_ADD, BLEND_RGB_SUB, BLEND_RGB_MULT, BLEND_RGB_MIN, BLEND_RGB_MAX
 With other special blitting flags perhaps added in the future.
@@ -144,7 +144,7 @@ Creates a new copy of the surface with the desired pixel format. The new
 surface will be in a format suited for quick blitting to the given format
 with per pixel alpha. If no surface is given, the new surface will be
 optimized for blitting to the current display.
- 
+
 Unlike the Surface.convert() method, the pixel format for the new image will not
 be exactly the same as the requested source, but it will be optimized for
 fast alpha blitting to the destination.
@@ -170,14 +170,14 @@ Fill the Surface with a solid color. If no rect argument is given the
 entire Surface will be filled. The rect argument will limit the fill to
 a specific area. The fill will also be contained by the Surface clip area.
 
-The color argument can be either a RGB sequence, a RGBA sequence or 
-a mapped color index.  If using RGBA, the Alpha (A part of RGBA) is ignored 
+The color argument can be either a RGB sequence, a RGBA sequence or
+a mapped color index.  If using RGBA, the Alpha (A part of RGBA) is ignored
 unless the surface uses per pixel alpha (Surface has the SRCALPHA flag).
 
-An optional special_flags is for passing in 
-new in 1.8.0: 
+An optional special_flags is for passing in
+new in 1.8.0:
 BLEND_ADD, BLEND_SUB, BLEND_MULT, BLEND_MIN, BLEND_MAX
-new in 1.8.1: 
+new in 1.8.1:
 BLEND_RGBA_ADD, BLEND_RGBA_SUB, BLEND_RGBA_MULT, BLEND_RGBA_MIN, BLEND_RGBA_MAX
 BLEND_RGB_ADD, BLEND_RGB_SUB, BLEND_RGB_MULT, BLEND_RGB_MIN, BLEND_RGB_MAX
 With other special blitting flags perhaps added in the future.
@@ -294,7 +294,7 @@ unlock the Surface memory from pixel access
 Surface.unlock(): return None
 
 Unlock the Surface pixel data after it has been locked. The unlocked Surface
-can once again be drawn and managed by Pygame. See the Surface.lock() 
+can once again be drawn and managed by Pygame. See the Surface.lock()
 documentation for more details.
 
 All pygame functions will automatically lock and unlock the Surface data as
@@ -337,7 +337,7 @@ get_locks
 Gets the locks for the Surface
 Surface.get_locks(): return tuple
 
-Returns the currently existing locks for the Surface. 
+Returns the currently existing locks for the Surface.
 <END>
 
 
@@ -378,7 +378,7 @@ get the color index palette for an 8bit Surface
 Surface.get_palette(): return [RGB, RGB, RGB, ...]
 
 Return a list of up to 256 color elements that represent the indexed colors
-used in an 8bit Surface. The returned list is a copy of the palette, and 
+used in an 8bit Surface. The returned list is a copy of the palette, and
 changes will have no effect on the Surface.
 <END>
 
@@ -397,7 +397,7 @@ set_palette
 set the color palette for an 8bit Surface
 Surface.set_palette([RGB, RGB, RGB, ...]): return None
 
-Set the full palette for an 8bit Surface. This will replace the colors in 
+Set the full palette for an 8bit Surface. This will replace the colors in
 the existing palette. A partial palette can be passed and only the first
 colors in the original palette will be changed.
 
@@ -427,7 +427,7 @@ returned integer will contain no more bits than the bit depth of the Surface.
 Mapped color values are not often used inside Pygame, but can be passed to
 most functions that require a Surface and a color.
 
-See the Surface object documentation for more information about colors 
+See the Surface object documentation for more information about colors
 and pixel formats.
 <END>
 
@@ -441,7 +441,7 @@ Convert an mapped integer color into the RGB color components for this Surface.
 Mapped color values are not often used inside Pygame, but can be passed to
 most functions that require a Surface and a color.
 
-See the Surface object documentation for more information about colors 
+See the Surface object documentation for more information about colors
 and pixel formats.
 <END>
 
@@ -468,7 +468,7 @@ Surface.get_clip(): return Rect
 
 Return a rectangle of the current clipping area. The Surface will always
 return a valid rectangle that will never be outside the bounds of the image.
-If the Surface has had None set for the clipping area, the Surface will 
+If the Surface has had None set for the clipping area, the Surface will
 return a rectangle with the full area of the Surface.
 <END>
 
@@ -568,7 +568,7 @@ Surface.get_rect(**kwargs): return Rect
 
 Returns a new rectangle covering the entire surface. This rectangle will
 always start at 0, 0 with a width. and height the same size as the image.
- 
+
 You can pass keyword argument values to this function. These named values
 will be applied to the attributes of the Rect before it is returned. An
 example would be 'mysurf.get_rect(center=(100,100))' to create a rectangle
@@ -616,7 +616,7 @@ Available for pygame.display.set_mode()
   DOUBLEBUF	0x40000000	# Set up double-buffered video mode
   FULLSCREEN	0x80000000	# Surface is a full screen display
   OPENGL        0x00000002      # Create an OpenGL rendering context
-  OPENGLBLIT	0x0000000A	# Create an OpenGL rendering context 
+  OPENGLBLIT	0x0000000A	# Create an OpenGL rendering context
                                 #   and use it for blitting.  Obsolete.
   RESIZABLE	0x00000010	# This video mode may be resized
   NOFRAME       0x00000020	# No window caption or edge frame
@@ -705,7 +705,7 @@ Surface.get_bounding_rect(min_alpha = 1): return Rect
 
 Returns the smallest rectangular region that contains all the pixels
 in the surface that have an alpha value greater than or equal to the
-minimum alpha value. 
+minimum alpha value.
 
 This function will temporarily lock and unlock the Surface as needed.
 

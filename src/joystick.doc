@@ -63,7 +63,7 @@ pygame.joystick.Joystick(id): return Joystick
 Create a new joystick to access a physical device. The id argument must
 be a value from 0 to pygame.joystick.get_count()-1.
 
-To access most of the Joystick methods, you'll need to init() 
+To access most of the Joystick methods, you'll need to init()
 the Joystick. This is separate from making sure the joystick module is
 initialized. When multiple Joysticks objects are created for the
 same physical joystick device (i.e., they have the same ID number),
@@ -73,7 +73,7 @@ will be shared.
 The Joystick object allows you to get information about the types of
 controls on a joystick device. Once the device is initialized the Pygame
 event queue will start receiving events about its input.
- 
+
 You can call the Joystick.get_name() and Joystick.get_id() functions
 without initializing the Joystick object.
 <SECTION>
@@ -148,7 +148,7 @@ additional axes.
 The pygame.JOYAXISMOTION events will be in the range from -1.0 to 1.0. A value
 of 0.0 means the axis is centered. Gamepad devices will usually be -1, 0, or 1
 with no values in between. Older analog joystick axes will not always use the
-full -1 to 1 range, and the centered value will be some area around 0. 
+full -1 to 1 range, and the centered value will be some area around 0.
 Analog joysticks usually have a bit of noise in their axis, which will generate
 a lot of rapid small motion events.
 <END>

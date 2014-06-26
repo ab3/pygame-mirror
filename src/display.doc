@@ -7,7 +7,7 @@ create the display you treat it as a regular Surface. Changes are not
 immediately visible onscreen, you must choose one of the two flipping functions
 to update the actual display.
 
-The origin of the display, where x = 0, and y = 0 is the top left of the 
+The origin of the display, where x = 0, and y = 0 is the top left of the
 screen.  Both axis increase positively towards the botom right of the screen.
 
 The pygame display can actually be initialized in one of several modes. By
@@ -150,7 +150,7 @@ This will update the contents of the entire display. If your display mode is
 using the flags pygame.HWSURFACE and pygame.DOUBLEBUF, this will wait for a
 vertical retrace and swap the surfaces. If you are using a different type
 of display mode, it will simply update the entire contents of the surface.
- 
+
 When using an pygame.OPENGL display mode this will perform a gl buffer swap.
 <END>
 
@@ -215,7 +215,7 @@ were satisfied. The VidInfo object has several attributes:
   blit_sw:    True if software Surface blitting is accelerated
   blit_sw_CC: True if software Surface colorkey blitting is accelerated
   blit_sw_A:  True if software Surface pixel alpha blitting is acclerated
-  current_h, current_h:  Width and height of the current video mode, or of the 
+  current_h, current_h:  Width and height of the current video mode, or of the
     desktop mode if called before the display.set_mode is called.
     (current_h, current_w are available since SDL 1.2.10, and pygame 1.8.0)
     They are -1 on error, or if an old SDL is being used.
@@ -246,7 +246,7 @@ depth. The return value will be an empty list if no display modes are available
 with the given arguments. A return value of -1 means that any requested
 resolution should work (this is likely the case for windowed modes). Mode
 sizes are sorted from biggest to smallest.
- 
+
 If depth is 0, SDL will choose the current/best color depth for the display.
 The flags defaults to pygame.FULLSCREEN, but you may need to add additional
 flags for specific fullscreen modes.
@@ -267,7 +267,7 @@ Usually the depth argument is not passed, but some platforms can support
 multiple display depths. If passed it will hint to which depth is a better
 match.
 
-The most useful flags to pass will be pygame.HWSURFACE, pygame.DOUBLEBUF, 
+The most useful flags to pass will be pygame.HWSURFACE, pygame.DOUBLEBUF,
 and maybe pygame.FULLSCREEN. The function will return 0 if these display
 flags cannot be set.
 <END>
@@ -294,7 +294,7 @@ automatically handles setting the OpenGL attributes like color and
 doublebuffering. OpenGL offers several other attributes you may want
 control over. Pass one of these attributes as the flag, and its appropriate
 value. This must be called before pygame.display.set_mode()
- 
+
 The OPENGL flags are;
 
   GL_ALPHA_SIZE, GL_DEPTH_SIZE, GL_STENCIL_SIZE, GL_ACCUM_RED_SIZE,

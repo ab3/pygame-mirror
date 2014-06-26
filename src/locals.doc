@@ -198,7 +198,7 @@ There are many keyboard constants, they are used to represent keys on the keyboa
 These constants represent the modifier keys on the keyboard.
 
 Their states are treated slightly differently than normal keyboard button states, and you can temporarily set their states.
- 
+
     KMOD_NONE, KMOD_LSHIFT, KMOD_RSHIFT, KMOD_SHIFT, KMOD_CAPS,
     KMOD_LCTRL, KMOD_RCTRL, KMOD_CTRL, KMOD_LALT, KMOD_RALT,
     KMOD_ALT, KMOD_LMETA, KMOD_RMETA, KMOD_META, KMOD_NUM, KMOD_MODE
@@ -208,7 +208,7 @@ Their states are treated slightly differently than normal keyboard button states
 
 "time"
 These constants define the various time constants
-  
+
     TIMER_RESOLUTION - minimum timer resolution in milliseconds
 <END>
 <END>

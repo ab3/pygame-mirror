@@ -14,14 +14,14 @@
   You should have received a copy of the GNU Library General Public
   License along with this library; if not, write to the Free
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-  
+
 */
 
 #if defined(__unix__)
 
 #include "camera.h"
 
-int v4l2_pixelformat (int fd, struct v4l2_format* fmt, 
+int v4l2_pixelformat (int fd, struct v4l2_format* fmt,
                              unsigned long pixelformat);
 
 char** v4l2_list_cameras (int* num_devices)
@@ -29,11 +29,11 @@ char** v4l2_list_cameras (int* num_devices)
     char** devices;
     char* device;
     int num, i, fd;
-    
+
     num = *num_devices;
-    
+
     devices = (char**) malloc(sizeof(char *)*65);
-    
+
     device = (char*) malloc(sizeof(char)*13);
     strcpy(device,"/dev/video");
     fd = open(device, O_RDONLY);
@@ -54,18 +54,18 @@ char** v4l2_list_cameras (int* num_devices)
         }
         close(fd);
     }
-    
+
     if (num == *num_devices) {
         free(device);
     } else {
         *num_devices = num;
     }
-    
+
     return devices;
 }
 
 /* A wrapper around a VIDIOC_S_FMT ioctl to check for format compatibility */
-int v4l2_pixelformat (int fd, struct v4l2_format* fmt, 
+int v4l2_pixelformat (int fd, struct v4l2_format* fmt,
                              unsigned long pixelformat)
 {
     fmt->fmt.pix.pixelformat = pixelformat;
@@ -73,7 +73,7 @@ int v4l2_pixelformat (int fd, struct v4l2_format* fmt,
     if (-1 == v4l2_xioctl (fd, VIDIOC_S_FMT, fmt)) {
         return 0;
     }
-    
+
     if (fmt->fmt.pix.pixelformat == pixelformat) {
     	return 1;
     } else {
@@ -86,13 +86,13 @@ int v4l2_get_control (int fd, int id, int *value)
 {
     struct v4l2_control control;
     CLEAR(control);
-    
+
     control.id = id;
-    
+
     if (-1 == v4l2_xioctl (fd, VIDIOC_G_CTRL, &control)) {
         return 0;
     }
-    
+
     *value = control.value;
     return 1;
 }
@@ -102,14 +102,14 @@ int v4l2_set_control (int fd, int id, int value)
 {
     struct v4l2_control control;
     CLEAR(control);
-    
+
     control.id = id;
     control.value = value;
-    
+
     if (-1 == v4l2_xioctl (fd, VIDIOC_S_CTRL, &control)) {
         return 0;
     }
-    
+
     return 1;
 }
 
@@ -133,7 +133,7 @@ PyObject* v4l2_read_raw (PyCameraObject* self)
 
     assert (buf.index < self->n_buffers);
 
-    raw = PyString_FromStringAndSize(self->buffers[buf.index].start, 
+    raw = PyString_FromStringAndSize(self->buffers[buf.index].start,
                                      self->buffers[buf.index].length);
 
     if (-1 == v4l2_xioctl (self->fd, VIDIOC_QBUF, &buf)) {
@@ -159,23 +159,23 @@ int v4l2_xioctl (int fd, int request, void *arg)
 
     do r = ioctl (fd, request, arg);
     while (-1 == r && EINTR == errno);
-    
+
     return r;
 }
 
-/* sends the image to the conversion function based on input format and 
+/* sends the image to the conversion function based on input format and
    desired output format.  Note that some of the less common conversions are
    currently two step processes. */
 /* TODO: Write single step conversions where they may actually be useful */
-int v4l2_process_image (PyCameraObject* self, const void *image, 
+int v4l2_process_image (PyCameraObject* self, const void *image,
                                unsigned int buffer_size, SDL_Surface* surf)
 {
 
     if (!surf)
         return 0;
-        
+
     SDL_LockSurface (surf);
-    
+
     switch (self->pixelformat) {
         case V4L2_PIX_FMT_RGB24:
             if (buffer_size >= self->size * 3) {
@@ -283,7 +283,7 @@ int v4l2_process_image (PyCameraObject* self, const void *image,
 int v4l2_query_buffer (PyCameraObject* self)
 {
     int i;
-    
+
     for (i = 0; i < self->n_buffers; ++i) {
         struct v4l2_buffer buf;
 
@@ -303,7 +303,7 @@ int v4l2_query_buffer (PyCameraObject* self)
         if (buf.flags & V4L2_BUF_FLAG_DONE)
             return 1;
     }
-    
+
     /* no buffer ready to take */
     return 0;
 }
@@ -325,7 +325,7 @@ int v4l2_read_frame (PyCameraObject* self, SDL_Surface* surf)
 
     assert (buf.index < self->n_buffers);
 
-    if (!v4l2_process_image (self, self->buffers[buf.index].start, 
+    if (!v4l2_process_image (self, self->buffers[buf.index].start,
                              self->buffers[buf.index].length, surf)) {
         PyErr_Format(PyExc_SystemError, "image processing error");
         return 0;
@@ -406,7 +406,7 @@ int v4l2_uninit_device (PyCameraObject* self)
 int v4l2_init_mmap (PyCameraObject* self)
 {
     struct v4l2_requestbuffers req;
-    
+
     CLEAR (req);
 
     /* 2 is the minimum possible, and some drivers will force a higher count.
@@ -512,7 +512,7 @@ int v4l2_init_device (PyCameraObject* self)
     fmt.fmt.pix.width = self->width;
     fmt.fmt.pix.height = self->height;
     fmt.fmt.pix.field = V4L2_FIELD_ANY;
-    
+
     /* Find the pixelformat supported by the camera that will take the least
        processing power to convert to the desired output.  Thus, for YUV out,
        YUYVand YUV420 are first, while for RGB and HSV, the packed RGB formats
@@ -552,7 +552,7 @@ int v4l2_init_device (PyCameraObject* self)
                 return 0;
             }
             break;
-    }    
+    }
 
     /* Note VIDIOC_S_FMT may change width and height. */
     self->width = fmt.fmt.pix.width;

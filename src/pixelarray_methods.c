@@ -107,7 +107,7 @@ _get_single_pixel (Uint8 *pixels, int bpp, Uint32 _index, Uint32 row)
         pixel = *((Uint32 *) (pixels + row) + _index);
         break;
     }
-    
+
     return PyInt_FromLong ((long)pixel);
 }
 
@@ -192,7 +192,7 @@ _make_surface(PyPixelArray *array)
         return RAISE (PyExc_SDLError, SDL_GetError ());
     }
     SDL_FreeSurface (tmpsf);
-    
+
     newsf = PySurface_New (newsurf);
     if (!newsf)
     {
@@ -327,7 +327,7 @@ _get_weights (PyObject *weights, float *wr, float *wg, float *wb)
 {
     int success = 1;
     float rgb[3] = { 0 };
-    
+
     if (!weights)
     {
         *wr = WR_NTSC;
@@ -335,7 +335,7 @@ _get_weights (PyObject *weights, float *wr, float *wg, float *wb)
         *wb = WB_NTSC;
         return 1;
     }
-    
+
     if (!PySequence_Check (weights))
     {
         PyErr_SetString (PyExc_TypeError, "weights must be a sequence");
@@ -351,7 +351,7 @@ _get_weights (PyObject *weights, float *wr, float *wg, float *wb)
     {
         PyObject *item;
         int i;
-        
+
         for (i = 0; i < 3; i++)
         {
             item = PySequence_GetItem (weights, i);
@@ -389,11 +389,11 @@ _get_weights (PyObject *weights, float *wr, float *wg, float *wb)
                 break;
         }
     }
-    
+
     if (success)
     {
         float sum = 0;
-        
+
         *wr = rgb[0];
         *wg = rgb[1];
         *wb = rgb[2];
@@ -409,7 +409,7 @@ _get_weights (PyObject *weights, float *wr, float *wg, float *wb)
         *wr = *wr / sum;
         *wg = *wg / sum;
         *wb = *wb / sum;
-        
+
         return success;
     }
     return 0;
@@ -437,7 +437,7 @@ _replace_color (PyPixelArray *array, PyObject *args, PyObject *kwds)
     Uint8 *pixels;
 
     static char *keys[] = { "color", "repcolor", "distance", "weights", NULL };
-    
+
     if (!PyArg_ParseTupleAndKeywords (args, kwds, "OO|fO", keys, &delcolor,
             &replcolor, &distance, &weights))
         return NULL;
@@ -937,7 +937,7 @@ _compare (PyPixelArray *array, PyObject *args, PyObject *kwds)
         return NULL;
     }
     surface1 = PySurface_AsSurface (newarray->surface);
-    
+
     black = SDL_MapRGBA (surface1->format, 0, 0, 0, 255);
     white = SDL_MapRGBA (surface1->format, 255, 255, 255, 255);
 

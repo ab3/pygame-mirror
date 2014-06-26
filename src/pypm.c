@@ -1975,7 +1975,7 @@ static PyObject *__Pyx_GetStdout(void) {
 
 static int __Pyx_PrintItem(PyObject *v) {
     PyObject *f;
-    
+
     if (!(f = __Pyx_GetStdout()))
         return -1;
     if (PyFile_SoftSpace(f, 1)) {
@@ -1997,7 +1997,7 @@ static int __Pyx_PrintItem(PyObject *v) {
 
 static int __Pyx_PrintNewline(void) {
     PyObject *f;
-    
+
     if (!(f = __Pyx_GetStdout()))
         return -1;
     if (PyFile_WriteString("\n", f) < 0)
@@ -2109,7 +2109,7 @@ static void __Pyx_AddTraceback(char *funcname) {
     PyObject *empty_string = 0;
     PyCodeObject *py_code = 0;
     PyFrameObject *py_frame = 0;
-    
+
     py_srcfile = PyString_FromString(__pyx_filename);
     if (!py_srcfile) goto bad;
     py_funcname = PyString_FromString(funcname);

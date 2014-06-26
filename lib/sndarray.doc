@@ -70,7 +70,7 @@ pygame.sndarray.use_arraytype (arraytype): return None
 Uses the requested array type for the module functions.
 Currently supported array types are:
 
-  numeric 
+  numeric
   numpy
 
 If the requested type is not available, a ValueError will be raised.

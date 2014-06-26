@@ -125,13 +125,13 @@ blit_array(PyObject* self, PyObject* arg)
     int loopx, loopy;
     int stridex, stridey, stridez=0, stridez2=0, sizex, sizey;
     int Rloss, Gloss, Bloss, Rshift, Gshift, Bshift;
-    
+
     if (!PyArg_ParseTuple(arg, "O!O", &PySurface_Type, &surfobj, &arrayobj)) {
         return NULL;
     }
     surf = PySurface_AsSurface(surfobj);
     format = surf->format;
-    
+
     if (!_get_array_interface(arrayobj, &cobj, &inter)) {
         return 0;
     }
@@ -139,7 +139,7 @@ blit_array(PyObject* self, PyObject* arg)
     switch (inter->typekind) {
     case 'i':  /* integer */
 	break;
-    case 'u':  /* unsigned integer */ 
+    case 'u':  /* unsigned integer */
 	break;
     case 'S':  /* fixed length character field */
 	break;
@@ -177,7 +177,7 @@ blit_array(PyObject* self, PyObject* arg)
         Py_DECREF(cobj);
         return NULL;
     }
-    
+
     array_data = (char *)inter->data;
 
     switch (surf->format->BytesPerPixel) {
@@ -382,7 +382,7 @@ blit_array(PyObject* self, PyObject* arg)
         }
         return RAISE(PyExc_RuntimeError, "unsupported bit depth for image");
     }
-    
+
     Py_DECREF(cobj);
     if (!PySurface_UnlockBy(surfobj, (PyObject *) arrayobj)) {
         return NULL;

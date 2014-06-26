@@ -169,7 +169,7 @@ pygame_scrap_init (void)
     }
     if (retval)
         _scrapinitialized = 1;
-    
+
     _format_MIME_PLAIN = RegisterClipboardFormat (PYGAME_SCRAP_TEXT);
     return retval;
 }
@@ -204,10 +204,10 @@ pygame_scrap_put (char *type, int srclen, char *src)
 
     if (!OpenClipboard (SDL_Window))
         return 0; /* Could not open the clipboard. */
-    
+
     if (format == CF_DIB || format == CF_DIBV5)
         nulledlen -= sizeof (BITMAPFILEHEADER); /* We won't copy the header */
-    
+
     hMem = GlobalAlloc ((GMEM_MOVEABLE | GMEM_DDESHARE), nulledlen);
     if (hMem)
     {
@@ -222,8 +222,8 @@ pygame_scrap_put (char *type, int srclen, char *src)
         GlobalUnlock (hMem);
         EmptyClipboard ();
         SetClipboardData (format, hMem);
-        
-        if (format == _format_MIME_PLAIN) 
+
+        if (format == _format_MIME_PLAIN)
         {
             /* Setting SCRAP_TEXT, also set CF_TEXT. */
             SetClipboardData (CF_TEXT, hMem);
@@ -235,7 +235,7 @@ pygame_scrap_put (char *type, int srclen, char *src)
         CloseClipboard ();
         return 0;
     }
-    
+
     CloseClipboard ();
     return 1;
 }

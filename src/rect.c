@@ -82,7 +82,7 @@ GameRect_FromObject (PyObject* obj, GAME_Rect* temp)
             }
             temp->y = val;
             Py_DECREF (sub);
-            
+
             sub = PySequence_GetItem (obj, 1);
             if (!sub || !PySequence_Check (sub) || PySequence_Length (sub) != 2)
             {
@@ -834,7 +834,7 @@ rect_slice (PyObject *_self, Py_ssize_t ilow, Py_ssize_t ihigh)
     PyObject *list;
     int* data = (int*)&self->r;
     int numitems, loop, l = 4;
-    
+
     if (ihigh < 0)
         ihigh += l;
     if (ilow < 0)
@@ -852,12 +852,12 @@ rect_slice (PyObject *_self, Py_ssize_t ilow, Py_ssize_t ihigh)
 
     if (ihigh < ilow)
         ihigh = ilow;
-    
+
     numitems = ihigh - ilow;
     list = PyList_New (numitems);
     for (loop = 0; loop < numitems; ++loop)
         PyList_SET_ITEM (list, loop, PyInt_FromLong (data[loop + ilow]));
-    
+
     return list;
 }
 
@@ -868,13 +868,13 @@ rect_ass_slice(PyObject *_self, Py_ssize_t ilow, Py_ssize_t ihigh, PyObject *v)
     int* data = (int*)&self->r;
     int numitems, loop, l = 4;
     int val;
-    
+
     if (!PySequence_Check (v))
     {
         RAISE (PyExc_TypeError, "Assigned slice must be a sequence");
         return -1;
     }
-    
+
     if (ihigh < 0)
         ihigh += l;
     if (ilow  < 0)
@@ -891,21 +891,21 @@ rect_ass_slice(PyObject *_self, Py_ssize_t ilow, Py_ssize_t ihigh, PyObject *v)
 
     if (ihigh < ilow)
         ihigh = ilow;
-    
+
     numitems = ihigh - ilow;
     if (numitems != PySequence_Length (v))
     {
         RAISE (PyExc_ValueError, "Assigned slice must be same length");
         return -1;
     }
-    
+
     for (loop = 0; loop < numitems; ++loop)
     {
         if (!IntFromObjIndex (v, loop, &val))
             return -1;
         data[loop + ilow] = val;
     }
-    
+
     return 0;
 }
 
@@ -1570,7 +1570,7 @@ MODINIT_DEFINE (rect)
     PyObject *module, *dict, *apiobj;
     int ecode;
     static void* c_api[PYGAMEAPI_RECT_NUMSLOTS];
-    
+
 #if PY3
     static struct PyModuleDef _module = {
         PyModuleDef_HEAD_INIT,

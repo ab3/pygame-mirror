@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -81,7 +81,7 @@
  OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  SUCH DAMAGE.
 </pre>
-<!--COMMENTS:pygame.camera--> &nbsp;<br> 
+<!--COMMENTS:pygame.camera--> &nbsp;<br>
 
 
 <a name="pygame.camera.colorspace">
@@ -89,7 +89,7 @@
   <i>Surface colorspace conversion</i><br>
   <tt>pygame.camera.colorspace(Surface, format, DestSurface = None): return Surface</tt><br>
 <p>Allows for conversion from <tt>"RGB"</tt> to a destination colorspace of <tt>"HSV"</tt> or <tt>"YUV"</tt>. The source and destination surfaces must be the same size and pixel depth. This is useful for computer vision on devices with limited processing power. Capture as small of an image as possible, <tt>transform.scale()</tt> it even smaller, and then convert the colorspace to <tt>YUV</tt> or <tt>HSV</tt> before doing any processing on it. </p>
-<!--COMMENTS:pygame.camera.colorspace--> &nbsp;<br> 
+<!--COMMENTS:pygame.camera.colorspace--> &nbsp;<br>
 <br></ul>
 
 
@@ -98,7 +98,7 @@
   <i>returns a list of available cameras</i><br>
   <tt>pygame.camera.list_cameras(): return [cameras]</tt><br>
 <p>Checks the computer for available cameras and returns a list of strings of camera names, ready to be fed into <tt>pygame.camera.Camera</tt>. </p>
-<!--COMMENTS:pygame.camera.list_cameras--> &nbsp;<br> 
+<!--COMMENTS:pygame.camera.list_cameras--> &nbsp;<br>
 <br></ul>
 
 
@@ -122,7 +122,7 @@
  <li> YUV - Luma, Blue Chrominance, Red Chrominance </li>
  <li> HSV - Hue, Saturation, Value </li>
 </ul>
-<!--COMMENTS:pygame.camera.Camera--> &nbsp;<br> 
+<!--COMMENTS:pygame.camera.Camera--> &nbsp;<br>
 
 
 <a name="Camera.start">
@@ -130,7 +130,7 @@
   <i>opens, initializes, and starts capturing</i><br>
   <tt>Camera.start(): return None</tt><br>
 <p>Opens the camera device, attempts to initialize it, and begins recording images to a buffer. </p>
-<!--COMMENTS:Camera.start--> &nbsp;<br> 
+<!--COMMENTS:Camera.start--> &nbsp;<br>
 <br></ul>
 
 
@@ -139,7 +139,7 @@
   <i>stops, uninitializes, and closes the camera</i><br>
   <tt>Camera.stop(): return None</tt><br>
 <p>Stops recording, uninitializes the camera, and closes it. </p>
-<!--COMMENTS:Camera.stop--> &nbsp;<br> 
+<!--COMMENTS:Camera.stop--> &nbsp;<br>
 <br></ul>
 
 
@@ -148,7 +148,7 @@
   <i>gets current values of user controls</i><br>
   <tt>Camera.get_controls(): return (hflip = bool, vflip = bool)</tt><br>
 <p>If the camera supports it, get_controls will return the current settings for horizontal and vertical image flip as bools. If unsupported, it will return the default values of (0, 0). Note that the return values here may be different than those returned by set_controls, though these are more likely to be correct. </p>
-<!--COMMENTS:Camera.get_controls--> &nbsp;<br> 
+<!--COMMENTS:Camera.get_controls--> &nbsp;<br>
 <br></ul>
 
 
@@ -157,7 +157,7 @@
   <i>changes camera settings if supported by the camera</i><br>
   <tt>Camera.set_controls(hflip = bool, vflip = bool): return (hflip = bool, vflip = bool)</tt><br>
 <p>Allows you to change camera settings if the camera supports it. The return values will be the input values if the camera claims it succeeded or the values previously in use if not. Each argument is optional, and the desired one can be chosen by supplying the keyword, like hflip. Note that the actual settings being used by the camera may not be the same as those returned by set_controls. </p>
-<!--COMMENTS:Camera.set_controls--> &nbsp;<br> 
+<!--COMMENTS:Camera.set_controls--> &nbsp;<br>
 <br></ul>
 
 
@@ -166,7 +166,7 @@
   <i>returns the dimensions of the images being recorded</i><br>
   <tt>Camera.get_size(): return (width, height)</tt><br>
 <p>Returns the current dimensions of the images being captured by the camera. </p>
-<!--COMMENTS:Camera.get_size--> &nbsp;<br> 
+<!--COMMENTS:Camera.get_size--> &nbsp;<br>
 <br></ul>
 
 
@@ -175,7 +175,7 @@
   <i>checks if a frame is ready</i><br>
   <tt>Camera.query_image(): return bool</tt><br>
 <p>If an image is ready to get, it returns true. Otherwise it returns false. Note that some webcams will always return False and will only queue a frame when called with a blocking function like get_image(). </p>
-<!--COMMENTS:Camera.query_image--> &nbsp;<br> 
+<!--COMMENTS:Camera.query_image--> &nbsp;<br>
 <br></ul>
 
 
@@ -184,7 +184,7 @@
   <i>captures an image as a Surface</i><br>
   <tt>Camera.get_image(Surface = None): return Surface</tt><br>
 <p>Pulls an image off of the buffer as an <tt>RGB</tt> Surface. It can optionally reuse an existing Surface to save time. The bit depth of the surface is either 24bits or the same as the optionally supplied Surface. </p>
-<!--COMMENTS:Camera.get_image--> &nbsp;<br> 
+<!--COMMENTS:Camera.get_image--> &nbsp;<br>
 <br></ul>
 
 
@@ -193,7 +193,7 @@
   <i>returns an unmodified image as a string</i><br>
   <tt>Camera.get_raw(): return string</tt><br>
 <p>Gets an image from a camera as a string in the native pixelformat of the camera. Useful for integration with other libraries. </p>
-<!--COMMENTS:Camera.get_raw--> &nbsp;<br> 
+<!--COMMENTS:Camera.get_raw--> &nbsp;<br>
 <br></ul>
 <br></ul>
 <br></ul>

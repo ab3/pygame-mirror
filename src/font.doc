@@ -5,11 +5,11 @@ The font module allows for rendering TrueType fonts into a new Surface
 object. This module is optional and requires SDL_ttf as a dependency. You
 should test that pygame.font is available and initialized before attempting
 to use the module.
- 
+
 Most of the work done with fonts are done by using the actual Font objects.
 The module by itself only has routines to initialize the module and create
 Font objects with pygame.font.Font().
- 
+
 You can load fonts from the system by using the pygame.font.SysFont()
 function. There are a few other functions to help lookup the system fonts.
 
@@ -69,9 +69,9 @@ get_fonts
 get all available fonts
 pygame.font.get_fonts(): return list of strings
 
-Returns a list of all the fonts available on the system. The names of the 
-fonts will be set to lowercase with all spaces and punctuation removed. 
-This works on most systems, but some will return an empty list if they cannot 
+Returns a list of all the fonts available on the system. The names of the
+fonts will be set to lowercase with all spaces and punctuation removed.
+This works on most systems, but some will return an empty list if they cannot
 find fonts.
 <END>
 
@@ -114,11 +114,11 @@ create a new Font object from a file
 pygame.font.Font(filename, size): return Font
 pygame.font.Font(object, size): return Font
 
-Load a new font from a given filename or a python file object. The size 
+Load a new font from a given filename or a python file object. The size
 is the height of the font in pixels. If the filename is None the Pygame
 default font will be loaded. If a font cannot be loaded from the arguments
 given an exception will be raised. Once the font is created the size cannot
-be changed. 
+be changed.
 
 Font objects are mainly used to render text into new Surface objects. The
 render can emulate bold or italic features, but it is better to load from

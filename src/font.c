@@ -84,8 +84,8 @@ font_resource (const char *filename)
     }
 #else
     if (PyFile_Check (result))
-    {		
-        PyObject *tmp = PyFile_Name (result);        
+    {
+        PyObject *tmp = PyFile_Name (result);
         Py_INCREF (tmp);
         Py_DECREF (result);
         result = tmp;
@@ -534,7 +534,7 @@ font_init (PyFontObject *self, PyObject *args, PyObject *kwds)
     int fontsize;
     TTF_Font* font = NULL;
     PyObject* fileobj;
-    
+
     self->font = NULL;
     if (!PyArg_ParseTuple (args, "Oi", &fileobj, &fontsize))
         return -1;
@@ -566,7 +566,7 @@ font_init (PyFontObject *self, PyObject *args, PyObject *kwds)
         if (fontsize <= 1)
             fontsize = 1;
     }
-     
+
     if (PyUnicode_Check (fileobj)) {
         PyObject* tmp = PyUnicode_AsASCIIString (fileobj);
 
@@ -578,13 +578,13 @@ font_init (PyFontObject *self, PyObject *args, PyObject *kwds)
 
     if (Bytes_Check (fileobj))
     {
-        FILE* test;        
+        FILE* test;
         char* filename = Bytes_AsString (fileobj);
-       		
+
         if (!filename) {
             goto error;
         }
-                
+
         /*check if it is a valid file, else SDL_ttf segfaults*/
         test = fopen (filename, "rb");
         if(!test)
@@ -605,7 +605,7 @@ font_init (PyFontObject *self, PyObject *args, PyObject *kwds)
             Py_BEGIN_ALLOW_THREADS;
             font = TTF_OpenFont(filename, fontsize);
             Py_END_ALLOW_THREADS;
-        }	
+        }
     }
     if (!font)
     {
@@ -766,8 +766,8 @@ MODINIT_DEFINE (font)
 #if PY3
     module = PyModule_Create (&_module);
 #else
-    module = Py_InitModule3 (MODPREFIX "font", 
-                             _font_methods, 
+    module = Py_InitModule3 (MODPREFIX "font",
+                             _font_methods,
                              DOC_PYGAMEFONT);
 #endif
     if (module == NULL) {

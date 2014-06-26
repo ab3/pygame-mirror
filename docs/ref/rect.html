@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -97,7 +97,7 @@
 <p>There are several collision tests between other rectangles. Most python containers can be searched for collisions against a single Rect. </p>
 <p>The area covered by a Rect does not include the right- and bottom-most edge of pixels. If one Rect's bottom border is another Rect's top border <tt>(i.e.</tt>, <tt>rect1.bottom=rect2.top)</tt>, the two meet exactly on the screen but do not overlap, and <tt>rect1.colliderect(rect2)</tt> returns false. </p>
 <p>Though Rect can be subclassed, methods that return new rectangles are not subclass aware. That is, move or copy with return a new <tt>pygame.Rect</tt> instance, not an instance of the subclass. This may change. To make subclass awareness work though, subclasses may have to maintain the same constructor signature as Rect. </p>
-<!--COMMENTS:pygame.Rect--> &nbsp;<br> 
+<!--COMMENTS:pygame.Rect--> &nbsp;<br>
 
 
 <a name="Rect.copy">
@@ -105,7 +105,7 @@
   <i>copy the rectangle</i><br>
   <tt>Rect.copy(): return Rect</tt><br>
 <p>Returns a new rectangle having the same position and size as the orginal. </p>
-<!--COMMENTS:Rect.copy--> &nbsp;<br> 
+<!--COMMENTS:Rect.copy--> &nbsp;<br>
 <br></ul>
 
 
@@ -114,7 +114,7 @@
   <i>moves the rectangle</i><br>
   <tt>Rect.move(x, y): return Rect</tt><br>
 <p>Returns a new rectangle that is moved by the given offset. The x and y arguments can be any integer value, positive or negative. </p>
-<!--COMMENTS:Rect.move--> &nbsp;<br> 
+<!--COMMENTS:Rect.move--> &nbsp;<br>
 <br></ul>
 
 
@@ -123,7 +123,7 @@
   <i>moves the rectangle, in place</i><br>
   <tt>Rect.move_ip(x, y): return None</tt><br>
 <p>Same as the <tt><a href="rect.html#Rect.move">Rect.move</a> - <font size=-1>moves the rectangle</font></tt> method, but operates in place. </p>
-<!--COMMENTS:Rect.move_ip--> &nbsp;<br> 
+<!--COMMENTS:Rect.move_ip--> &nbsp;<br>
 <br></ul>
 
 
@@ -132,7 +132,7 @@
   <i>grow or shrink the rectangle size</i><br>
   <tt>Rect.inflate(x, y): return Rect</tt><br>
 <p>Returns a new rectangle with the size changed by the given offset. The rectangle remains centered around its current center. Negative values will shrink the rectangle. </p>
-<!--COMMENTS:Rect.inflate--> &nbsp;<br> 
+<!--COMMENTS:Rect.inflate--> &nbsp;<br>
 <br></ul>
 
 
@@ -141,7 +141,7 @@
   <i>grow or shrink the rectangle size, in place</i><br>
   <tt>Rect.inflate_ip(x, y): return None</tt><br>
 <p>Same as the <tt><a href="rect.html#Rect.inflate">Rect.inflate</a> - <font size=-1>grow or shrink the rectangle size</font></tt> method, but operates in place. </p>
-<!--COMMENTS:Rect.inflate_ip--> &nbsp;<br> 
+<!--COMMENTS:Rect.inflate_ip--> &nbsp;<br>
 <br></ul>
 
 
@@ -150,7 +150,7 @@
   <i>moves the rectangle inside another</i><br>
   <tt>Rect.clamp(Rect): return Rect</tt><br>
 <p>Returns a new rectangle that is moved to be completely inside the argument Rect. If the rectangle is too large to fit inside, it is centered inside the argument Rect, but its size is not changed. </p>
-<!--COMMENTS:Rect.clamp--> &nbsp;<br> 
+<!--COMMENTS:Rect.clamp--> &nbsp;<br>
 <br></ul>
 
 
@@ -159,7 +159,7 @@
   <i>moves the rectangle inside another, in place</i><br>
   <tt>Rect.clamp_ip(Rect): return None</tt><br>
 <p>Same as the <tt><a href="rect.html#Rect.clamp">Rect.clamp</a> - <font size=-1>moves the rectangle inside another</font></tt> method, but operates in place. </p>
-<!--COMMENTS:Rect.clamp_ip--> &nbsp;<br> 
+<!--COMMENTS:Rect.clamp_ip--> &nbsp;<br>
 <br></ul>
 
 
@@ -168,7 +168,7 @@
   <i>crops a rectangle inside another</i><br>
   <tt>Rect.clip(Rect): return Rect</tt><br>
 <p>Returns a new rectangle that is cropped to be completely inside the argument Rect. If the two rectangles do not overlap to begin with, a Rect with 0 size is returned. </p>
-<!--COMMENTS:Rect.clip--> &nbsp;<br> 
+<!--COMMENTS:Rect.clip--> &nbsp;<br>
 <br></ul>
 
 
@@ -177,7 +177,7 @@
   <i>joins two rectangles into one</i><br>
   <tt>Rect.union(Rect): return Rect</tt><br>
 <p>Returns a new rectangle that completely covers the area of the two provided rectangles. There may be area inside the new Rect that is not covered by the originals. </p>
-<!--COMMENTS:Rect.union--> &nbsp;<br> 
+<!--COMMENTS:Rect.union--> &nbsp;<br>
 <br></ul>
 
 
@@ -186,7 +186,7 @@
   <i>joins two rectangles into one, in place</i><br>
   <tt>Rect.union_ip(Rect): return None</tt><br>
 <p>Same as the <tt><a href="rect.html#Rect.union">Rect.union</a> - <font size=-1>joins two rectangles into one</font></tt> method, but operates in place. </p>
-<!--COMMENTS:Rect.union_ip--> &nbsp;<br> 
+<!--COMMENTS:Rect.union_ip--> &nbsp;<br>
 <br></ul>
 
 
@@ -195,7 +195,7 @@
   <i>the union of many rectangles</i><br>
   <tt>Rect.unionall(Rect_sequence): return Rect</tt><br>
 <p>Returns the union of one rectangle with a sequence of many rectangles. </p>
-<!--COMMENTS:Rect.unionall--> &nbsp;<br> 
+<!--COMMENTS:Rect.unionall--> &nbsp;<br>
 <br></ul>
 
 
@@ -204,7 +204,7 @@
   <i>the union of many rectangles, in place</i><br>
   <tt>Rect.unionall_ip(Rect_sequence): return None</tt><br>
 <p>The same as the <tt><a href="rect.html#Rect.unionall">Rect.unionall</a> - <font size=-1>the union of many rectangles</font></tt> method, but operates in place. </p>
-<!--COMMENTS:Rect.unionall_ip--> &nbsp;<br> 
+<!--COMMENTS:Rect.unionall_ip--> &nbsp;<br>
 <br></ul>
 
 
@@ -213,7 +213,7 @@
   <i>resize and move a rectangle with aspect ratio</i><br>
   <tt>Rect.fit(Rect): return Rect</tt><br>
 <p>Returns a new rectangle that is moved and resized to fit another. The aspect ratio of the original Rect is preserved, so the new rectangle may be smaller than the target in either width or height. </p>
-<!--COMMENTS:Rect.fit--> &nbsp;<br> 
+<!--COMMENTS:Rect.fit--> &nbsp;<br>
 <br></ul>
 
 
@@ -222,7 +222,7 @@
   <i>correct negative sizes</i><br>
   <tt>Rect.normalize(): return None</tt><br>
 <p>This will flip the width or height of a rectangle if it has a negative size. The rectangle will remain in the same place, with only the sides swapped. </p>
-<!--COMMENTS:Rect.normalize--> &nbsp;<br> 
+<!--COMMENTS:Rect.normalize--> &nbsp;<br>
 <br></ul>
 
 
@@ -231,7 +231,7 @@
   <i>test if one rectangle is inside another</i><br>
   <tt>Rect.contains(Rect): return bool</tt><br>
 <p>Returns true when the argument is completely inside the Rect. </p>
-<!--COMMENTS:Rect.contains--> &nbsp;<br> 
+<!--COMMENTS:Rect.contains--> &nbsp;<br>
 <br></ul>
 
 
@@ -241,7 +241,7 @@
   <tt>Rect.collidepoint(x, y): return bool</tt><br>
   <tt>Rect.collidepoint((x,y)): return bool</tt><br>
 <p>Returns true if the given point is inside the rectangle. <tt>A</tt> point along the right or bottom edge is not considered to be inside the rectangle. </p>
-<!--COMMENTS:Rect.collidepoint--> &nbsp;<br> 
+<!--COMMENTS:Rect.collidepoint--> &nbsp;<br>
 <br></ul>
 
 
@@ -250,7 +250,7 @@
   <i>test if two rectangles overlap</i><br>
   <tt>Rect.colliderect(Rect): return bool</tt><br>
 <p>Returns true if any portion of either rectangle overlap (except the top+bottom or left+right edges). </p>
-<!--COMMENTS:Rect.colliderect--> &nbsp;<br> 
+<!--COMMENTS:Rect.colliderect--> &nbsp;<br>
 <br></ul>
 
 
@@ -259,7 +259,7 @@
   <i>test if one rectangle in a list intersects</i><br>
   <tt>Rect.collidelist(list): return index</tt><br>
 <p>Test whether the rectangle collides with any in a sequence of rectangles. The index of the first collision found is returned. If no collisions are found an index of -1 is returned. </p>
-<!--COMMENTS:Rect.collidelist--> &nbsp;<br> 
+<!--COMMENTS:Rect.collidelist--> &nbsp;<br>
 <br></ul>
 
 
@@ -268,7 +268,7 @@
   <i>test if all rectangles in a list intersect</i><br>
   <tt>Rect.collidelistall(list): return indices</tt><br>
 <p>Returns a list of all the indices that contain rectangles that collide with the Rect. If no intersecting rectangles are found, an empty list is returned. </p>
-<!--COMMENTS:Rect.collidelistall--> &nbsp;<br> 
+<!--COMMENTS:Rect.collidelistall--> &nbsp;<br>
 <br></ul>
 
 
@@ -278,7 +278,7 @@
   <tt>Rect.collidedict(dict): return (key, value)</tt><br>
 <p>Returns the key and value of the first dictionary value that collides with the Rect. If no collisions are found, None is returned. </p>
 <p>Rect objects are not hashable and cannot be used as keys in a dictionary, only as values. </p>
-<!--COMMENTS:Rect.collidedict--> &nbsp;<br> 
+<!--COMMENTS:Rect.collidedict--> &nbsp;<br>
 <br></ul>
 
 
@@ -288,7 +288,7 @@
   <tt>Rect.collidedictall(dict): return [(key, value), ...]</tt><br>
 <p>Returns a list of all the key and value pairs that intersect with the Rect. If no collisions are found an empty dictionary is returned. </p>
 <p>Rect objects are not hashable and cannot be used as keys in a dictionary, only as values. </p>
-<!--COMMENTS:Rect.collidedictall--> &nbsp;<br> 
+<!--COMMENTS:Rect.collidedictall--> &nbsp;<br>
 <br></ul>
 <br></ul>
 

@@ -58,13 +58,13 @@ static void blit_blend_rgba_max (SDL_BlitInfo * info);
 
 
 
-static int 
+static int
 SoftBlitPyGame (SDL_Surface * src, SDL_Rect * srcrect,
                 SDL_Surface * dst, SDL_Rect * dstrect, int the_args);
 extern int  SDL_RLESurface (SDL_Surface * surface);
 extern void SDL_UnRLESurface (SDL_Surface * surface, int recode);
 
-static int 
+static int
 SoftBlitPyGame (SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst,
                 SDL_Rect * dstrect, int the_args)
 {
@@ -120,9 +120,9 @@ SoftBlitPyGame (SDL_Surface * src, SDL_Rect * srcrect, SDL_Surface * dst,
         if (info.d_pixels > info.s_pixels)
 	{
 	    int span = info.width * info.src->BytesPerPixel;
-	    Uint8 *srcpixend = 
+	    Uint8 *srcpixend =
 		info.s_pixels + (info.height - 1) * src->pitch + span;
-	    
+
 	    if (info.d_pixels < srcpixend)
 	    {
 		int dstoffset = (info.d_pixels - info.s_pixels) % src->pitch;
@@ -1934,7 +1934,7 @@ blit_blend_max (SDL_BlitInfo * info)
 
 
 
-static void 
+static void
 alphablit_alpha (SDL_BlitInfo * info)
 {
     int             n;
@@ -2040,7 +2040,7 @@ alphablit_alpha (SDL_BlitInfo * info)
     }
 }
 
-static void 
+static void
 alphablit_colorkey (SDL_BlitInfo * info)
 {
     int             n;
@@ -2179,7 +2179,7 @@ alphablit_colorkey (SDL_BlitInfo * info)
     }
 }
 
-static void 
+static void
 alphablit_solid (SDL_BlitInfo * info)
 {
     int             n;
@@ -2313,7 +2313,7 @@ alphablit_solid (SDL_BlitInfo * info)
 }
 
 /*we assume the "dst" has pixel alpha*/
-int 
+int
 pygame_Blit (SDL_Surface * src, SDL_Rect * srcrect,
              SDL_Surface * dst, SDL_Rect * dstrect, int the_args)
 {
@@ -2418,7 +2418,7 @@ pygame_Blit (SDL_Surface * src, SDL_Rect * srcrect,
     return 0;
 }
 
-int 
+int
 pygame_AlphaBlit (SDL_Surface * src, SDL_Rect * srcrect,
                   SDL_Surface * dst, SDL_Rect * dstrect, int the_args)
 {

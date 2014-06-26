@@ -13,7 +13,7 @@
 	<a href=../index.html>Help Contents</a> &nbsp;||
 	<a href=index.html>Reference Index</a> &nbsp;||
 	<br>&nbsp;<br>
-	
+
 <a href="camera.html">Camera</a>&nbsp;||&nbsp;
 <a href="cdrom.html">Cdrom</a>&nbsp;||&nbsp;
 <a href="color.html">Color</a>&nbsp;||&nbsp;
@@ -65,7 +65,7 @@
 <p>The mouse functions can be used to get the current state of the mouse device. These functions can also alter the system cursor for the mouse. </p>
 <p>When the display mode is set, the event queue will start receiving mouse events. The mouse buttons generate <tt>pygame.MOUSEBUTTONDOWN</tt> and <tt>pygame.MOUSEBUTTONUP</tt> events when they are pressed and released. These events contain a button attribute representing which button was pressed. The mouse wheel will generate <tt>pygame.MOUSEBUTTONDOWN</tt> events when rolled. The button will be set to 4 when the wheel is rolled up, and to button 5 when the wheel is rolled down. Anytime the mouse is moved it generates a <tt>pygame.MOUSEMOTION</tt> event. The mouse movement is broken into small and accurate motion events. As the mouse is moving many motion events will be placed on the queue. Mouse motion events that are not properly cleaned from the event queue are the primary reason the event queue fills up. </p>
 <p>If the mouse cursor is hidden, and input is grabbed to the current display the mouse will enter a virtual input mode, where the relative movements of the mouse will never be stopped by the borders of the screen. See the functions <tt><a href="mouse.html#pygame.mouse.set_visible">pygame.mouse.set_visible</a> - <font size=-1>hide or show the mouse cursor</font></tt> and <tt><a href="event.html#pygame.event.set_grab">pygame.event.set_grab</a> - <font size=-1>control the sharing of input devices with other applications</font></tt> to get this configured. </p>
-<!--COMMENTS:pygame.mouse--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse--> &nbsp;<br>
 
 
 <a name="pygame.mouse.get_pressed">
@@ -78,7 +78,7 @@
 </pre><p>to see if they are <tt>MOUSEBUTTONDOWN</tt>, <tt>MOUSEBUTTONUP</tt>, or <tt>MOUSEMOTION</tt>. </p>
 <p>Note, that on <tt>X11</tt> some XServers use middle button emulation. When you click both buttons 1 and 3 at the same time a 2 button event can be emitted. </p>
 <p>Note, remember to call <tt><a href="event.html#pygame.event.get">pygame.event.get</a> - <font size=-1>get events from the queue</font></tt> before this function. Otherwise it will not work. </p>
-<!--COMMENTS:pygame.mouse.get_pressed--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.get_pressed--> &nbsp;<br>
 <br></ul>
 
 
@@ -87,7 +87,7 @@
   <i>get the mouse cursor position</i><br>
   <tt>pygame.mouse.get_pos(): return (x, y)</tt><br>
 <p>Returns the <tt>X</tt> and <tt>Y</tt> position of the mouse cursor. The position is relative the the top-left corner of the display. The cursor position can be located outside of the display window, but is always constrained to the screen. </p>
-<!--COMMENTS:pygame.mouse.get_pos--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.get_pos--> &nbsp;<br>
 <br></ul>
 
 
@@ -96,7 +96,7 @@
   <i>get the amount of mouse movement</i><br>
   <tt>pygame.mouse.get_rel(): return (x, y)</tt><br>
 <p>Returns the amount of movement in <tt>X</tt> and <tt>Y</tt> since the previous call to this function. The relative movement of the mouse cursor is constrained to the edges of the screen, but see the virtual input mouse mode for a way around this. Virtual input mode is described at the top of the page. </p>
-<!--COMMENTS:pygame.mouse.get_rel--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.get_rel--> &nbsp;<br>
 <br></ul>
 
 
@@ -105,7 +105,7 @@
   <i>set the mouse cursor position</i><br>
   <tt>pygame.mouse.set_pos([x, y]): return None</tt><br>
 <p>Set the current mouse position to arguments given. If the mouse cursor is visible it will jump to the new coordinates. Moving the mouse will generate a new <tt>pygaqme.MOUSEMOTION</tt> event. </p>
-<!--COMMENTS:pygame.mouse.set_pos--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.set_pos--> &nbsp;<br>
 <br></ul>
 
 
@@ -114,7 +114,7 @@
   <i>hide or show the mouse cursor</i><br>
   <tt>pygame.mouse.set_visible(bool): return bool</tt><br>
 <p>If the bool argument is true, the mouse cursor will be visible. This will return the previous visible state of the cursor. </p>
-<!--COMMENTS:pygame.mouse.set_visible--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.set_visible--> &nbsp;<br>
 <br></ul>
 
 
@@ -125,7 +125,7 @@
 <p>Returns true when pygame is receiving mouse input events (or, in windowing terminology, is "active" or has the "focus"). </p>
 <p>This method is most useful when working in a window. By contrast, in full-screen mode, this method always returns true. </p>
 <p>Note: under <tt>MS</tt> Windows, the window that has the mouse focus also has the keyboard focus. But under X-Windows, one window can receive mouse events and another receive keyboard events. <tt><a href="mouse.html#pygame.mouse.get_focused">pygame.mouse.get_focused</a> - <font size=-1>check if the display is receiving mouse input</font></tt> indicates whether the pygame window receives mouse events. </p>
-<!--COMMENTS:pygame.mouse.get_focused--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.get_focused--> &nbsp;<br>
 <br></ul>
 
 
@@ -136,7 +136,7 @@
 <p>When the mouse cursor is visible, it will be displayed as a black and white bitmap using the given bitmask arrays. The size is a sequence containing the cursor width and height. Hotspot is a sequence containing the cursor hotspot position. xormasks is a sequence of bytes containing the cursor xor data masks. Lastly is andmasks, a sequence of bytes containting the cursor bitmask data. </p>
 <p>Width must be a multiple of 8, and the mask arrays must be the correct size for the given width and height. Otherwise an exception is raised. </p>
 <p>See the <tt>pygame.cursor</tt> module for help creating default and custom masks for the system cursor. </p>
-<!--COMMENTS:pygame.mouse.set_cursor--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.set_cursor--> &nbsp;<br>
 <br></ul>
 
 
@@ -145,7 +145,7 @@
   <i>get the image for the system mouse cursor</i><br>
   <tt>pygame.mouse.get_cursor(): return (size, hotspot, xormasks, andmasks)</tt><br>
 <p>Get the information about the mouse system cursor. The return value is the same data as the arguments passed into <tt><a href="mouse.html#pygame.mouse.set_cursor">pygame.mouse.set_cursor</a> - <font size=-1>set the image for the system mouse cursor</font></tt>. </p>
-<!--COMMENTS:pygame.mouse.get_cursor--> &nbsp;<br> 
+<!--COMMENTS:pygame.mouse.get_cursor--> &nbsp;<br>
 <br></ul>
 <br></ul>
 

@@ -3150,7 +3150,7 @@ a more featureful subclass of Sprite with more attributes
 
 
 
- 
+
 
 
 
@@ -3437,7 +3437,7 @@ simple test if a Sprite intersects anything in a Group
 
 
 
- 
+
 
 
 

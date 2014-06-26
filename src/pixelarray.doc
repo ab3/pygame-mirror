@@ -34,12 +34,12 @@ the PixelArray however.
                                             # second pixel  = 0xAACCEE, ...
   pxarray[a:b] = ((255, 0, 255), (170, 204, 238), ...) # same as above
   pxarray[a:b] = ((255, 0, 255), 0xAACCEE, ...)        # same as above
-  
+
   pxarray[a:b] = otherarray[x:y]            # slice sizes must match
 
 Note, that something like
 
-  pxarray[2:4][3:5] = ... 
+  pxarray[2:4][3:5] = ...
 
 will not cause a rectangular manipulation. Instead it will be first
 sliced to a two-column array, which then shall be sliced by columns once
@@ -88,7 +88,7 @@ current PixelArray the size, pixel order etc. will be different from the
 original Surface.
 
   # Create a new surface flipped around the vertical axis.
-  sf = pxarray[:,::-1].make_surface () 
+  sf = pxarray[:,::-1].make_surface ()
 
 New in pygame 1.8.1.
 <END>

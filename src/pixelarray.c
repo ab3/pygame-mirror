@@ -102,7 +102,7 @@ static PyTypeObject PyPixelArray_Type;
     (((PyPixelArray *)x)->surface == ((PyPixelArray *)y)->surface)
 
 #include "pixelarray_methods.c"
-    
+
 /**
  * Methods, which are bound to the PyPixelArray type.
  */
@@ -146,7 +146,7 @@ static PyGetSetDef _pxarray_getsets[] =
 {
     { "__dict__", (getter) _pxarray_get_dict, NULL, NULL, NULL },
     { "surface", (getter) _pxarray_get_surface, NULL, DOC_PIXELARRAYSURFACE,
-      NULL }, 
+      NULL },
     { NULL, NULL, NULL, NULL, NULL }
 };
 
@@ -236,7 +236,7 @@ static PyTypeObject PyPixelArray_Type =
     0,                          /* tp_subclasses */
     0,                          /* tp_weaklist */
     0                           /* tp_del */
-#endif    
+#endif
 };
 
 static PyPixelArray*
@@ -382,7 +382,7 @@ _pxarray_repr (PyPixelArray *array)
 
 /*
     printf ("::ARRAY: %d:%d:%d,  %d:%d:%d %d\n",
-        array->xstart, array->xlen, array->xstep, array->ystart, 
+        array->xstart, array->xlen, array->xstep, array->ystart,
         array->ylen, array->ystep, array->padding);
 */
     string = Text_FromUTF8 ("PixelArray(");
@@ -392,7 +392,7 @@ _pxarray_repr (PyPixelArray *array)
     xlen = (Sint32) array->xlen - absxstep;
 
     y = array->ystart;
-    
+
     switch (bpp)
     {
     case 1:
@@ -890,7 +890,7 @@ _array_assign_array (PyPixelArray *array, Py_ssize_t low, Py_ssize_t high,
         break;
     }
     Py_END_ALLOW_THREADS;
-    
+
     if (copied)
     {
         free (valpixels);
@@ -1032,7 +1032,7 @@ _array_assign_sequence (PyPixelArray *array, Py_ssize_t low, Py_ssize_t high,
                 y += ystep;
                 posy += absystep;
             }
-        }        
+        }
         break;
     case 2:
         if (gooverx)
@@ -1484,7 +1484,7 @@ _pxarray_ass_slice (PyPixelArray *array, Py_ssize_t low, Py_ssize_t high,
             low = 0;
         else if (low > (Sint32) array->xlen)
             low = array->xlen;
-        
+
         if (high < low)
             high = low;
         else if (high > (Sint32) array->xlen)
@@ -1496,7 +1496,7 @@ _pxarray_ass_slice (PyPixelArray *array, Py_ssize_t low, Py_ssize_t high,
             low = 0;
         else if (low > (Sint32) array->ylen)
             low = array->ylen;
-        
+
         if (high < low)
             high = low;
         else if (high > (Sint32) array->ylen)
@@ -1701,7 +1701,7 @@ _get_subslice (PyObject *op, Py_ssize_t length, Py_ssize_t *start,
         {
             PyErr_SetString(PyExc_IndexError, "invalid index");
             return 0;
-        }   
+        }
         *stop = (*start) + 1;
         *step = 1;
     }
@@ -1724,7 +1724,7 @@ _get_subslice (PyObject *op, Py_ssize_t length, Py_ssize_t *start,
         {
             PyErr_SetString(PyExc_IndexError, "invalid index");
             return 0;
-        }   
+        }
         *stop = (*start) + 1;
         *step = 1;
     }
@@ -1751,7 +1751,7 @@ _pxarray_subscript (PyPixelArray *array, PyObject *op)
         Py_ssize_t xstart, xstop, xstep;
         Py_ssize_t ystart, ystop, ystep;
         Py_ssize_t lenx, leny;
-        
+
         if (size == 0)
         {
             /* array[,], array[()] ... */
@@ -1882,7 +1882,7 @@ _pxarray_subscript (PyPixelArray *array, PyObject *op)
             i = PyInt_AsLong (op);
         else
             i = PyLong_AsLong (op);
-#endif 
+#endif
         if (i == -1 && PyErr_Occurred ())
             return NULL;
         if (i < 0)
@@ -1902,7 +1902,7 @@ _pxarray_ass_subscript (PyPixelArray *array, PyObject* op, PyObject* value)
     /* TODO: by time we can make this faster by avoiding the creation of
      * temporary subarrays.
      */
-    
+
     /* Note: order matters here.
      * First check array[x,y], then array[x:y:z], then array[x]
      * Otherwise it'll fail.
@@ -1916,7 +1916,7 @@ _pxarray_ass_subscript (PyPixelArray *array, PyObject* op, PyObject* value)
         Py_ssize_t ystart, ystop, ystep;
         Py_ssize_t lenx, leny;
         int retval;
-        
+
         if (size == 0)
         {
             /* array[,], array[()] ... */
@@ -2074,7 +2074,7 @@ _pxarray_ass_subscript (PyPixelArray *array, PyObject* op, PyObject* value)
             i = PyInt_AsLong (op);
         else
             i = PyLong_AsLong (op);
-#endif 
+#endif
         if (i == -1 && PyErr_Occurred ())
             return -1;
         if (i < 0)
@@ -2149,7 +2149,7 @@ MODINIT_DEFINE (pixelarray)
     {
         MODINIT_ERROR;
     }
-    
+
     /* create the module */
 #if PY3
     module = PyModule_Create (&_module);

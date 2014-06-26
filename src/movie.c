@@ -114,7 +114,7 @@ movie_skip (PyObject* self, PyObject* args)
 	return RAISE (PyExc_SDLError,
 				  "cannot convert without pygame.display initialized");
 
-	
+
 	if (!PyArg_ParseTuple (args, "f", &seconds))
         return NULL;
     Py_BEGIN_ALLOW_THREADS;
@@ -359,10 +359,10 @@ static PyMethodDef movie_methods[] =
     { "pause", (PyCFunction) movie_pause, METH_NOARGS, DOC_MOVIEPAUSE },
     { "rewind", (PyCFunction) movie_rewind, METH_NOARGS, DOC_MOVIEREWIND },
     { "skip", movie_skip, METH_VARARGS, DOC_MOVIESKIP },
-    
+
     { "set_volume", movie_set_volume, METH_VARARGS, DOC_MOVIESETVOLUME },
     { "set_display", movie_set_display, METH_VARARGS, DOC_MOVIESETDISPLAY },
-    
+
     { "has_video", (PyCFunction) movie_has_video, METH_NOARGS,
       DOC_MOVIEHASVIDEO },
     { "has_audio", (PyCFunction) movie_has_audio, METH_NOARGS,

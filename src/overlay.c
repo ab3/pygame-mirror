@@ -48,11 +48,11 @@ static PyObject*
 Overlay_SetLocation (PyGameOverlay *self, PyObject *args)
 {
     GAME_Rect *rect, temp;
-    
+
     rect = GameRect_FromObject (args, &temp);
     if (!rect)
         return RAISE (PyExc_TypeError, "Invalid rectstyle argument");
-    
+
     self->cRect.x = rect->x;
     self->cRect.y = rect->y;
     self->cRect.w = rect->w;
@@ -68,7 +68,7 @@ Overlay_Display (PyGameOverlay *self, PyObject *args)
     // Parse data params for frame
     int ls_y, ls_u, ls_v, y;
     unsigned char *src_y=0, *src_u=0, *src_v=0;
-	
+
     if (PyTuple_Size (args))
     {
         if (!PyArg_ParseTuple (args, "(s#s#s#)", &src_y, &ls_y, &src_u, &ls_u,
@@ -144,7 +144,7 @@ Overlay_New (PyTypeObject *type, PyObject *args, PyObject *kwds)
     screen = SDL_GetVideoSurface ();
     if (!screen)
         return RAISE (PyExc_SDLError, "Display mode not set");
-        
+
     // Create new Overlay object
     self= (PyGameOverlay *)type->tp_alloc (type, 0);
     if (!self)
@@ -243,7 +243,7 @@ MODINIT_DEFINE (overlay)
     if (PyErr_Occurred ()) {
 	MODINIT_ERROR;
     }
-    import_pygame_rect ();    
+    import_pygame_rect ();
     if (PyErr_Occurred ()) {
 	MODINIT_ERROR;
     }

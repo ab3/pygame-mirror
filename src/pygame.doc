@@ -27,7 +27,7 @@ returned as a tuple. You can always initialize individual modules manually,
 but pygame.init is a convenient way to get everything started. The init()
 functions for individual modules will raise exceptions when they fail.
 
-You may want to initalise the different modules seperately to speed up 
+You may want to initalise the different modules seperately to speed up
 your program or to not use things your game does not.
 
 It is safe to call this init() more than once: repeated calls will have no effect.
@@ -44,9 +44,9 @@ Uninitialize all pygame modules that have previously been initialized. When
 the Python interpreter shuts down, this method is called regardless, so your
 program should not need it, except when it wants to terminate its pygame
 resources and continue. It is safe to call this function more than once:
-repeated calls have no effect. 
+repeated calls have no effect.
 
-Note, that pygame.quit will not exit your program.  Consider letting your 
+Note, that pygame.quit will not exit your program.  Consider letting your
 program end in the same way a normal python program will end.
 <END>
 
@@ -115,7 +115,7 @@ register_quit(callable): return None
 
 When pygame.quit is called, all registered quit functions are called. Pygame
 modules do this automatically when they are initializing. This function is
-not be needed for regular pygame users. 
+not be needed for regular pygame users.
 <END>
 
 
@@ -150,7 +150,7 @@ would look like this:
     if pygame.version.vernum < (1, 5):
         print 'Warning, older version of Pygame (%s)' %  pygame.version.ver
         disable_advanced_features = True
-        
+
 <END>
 <END>
 <END>

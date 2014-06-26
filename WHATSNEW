@@ -32,7 +32,7 @@ Dec 05, 2008
 
 Aug 30, 2008
     [BUG] Fixed CREATE_PIXEL macro's use of Aloss
-    which was making surface.fill with surfaces with no alpha go green 
+    which was making surface.fill with surfaces with no alpha go green
 
 Jul 18, 2008
     Added Surface.set_masks and .set_shifts useful for using data in
@@ -67,7 +67,7 @@ Jun 16, 2008
     locks.
     [BUG] Fixed Surface.get_locked() bug for Surfaces which do not
       require locking, but have third-party locks attached.
-    
+
 Jun 13, 2008
     [BUG] Fixed bug with mixer.get_init() Thanks Frankie Robertson!
     [BUG] Fixed long alpha overflow bug in Surface.set_alpha().
@@ -83,14 +83,14 @@ May 24, 2008
     New Color class for color management.
 
 Apr 30, 2008
-    updates to the sprite.py collision functions that update them to match 
-        the modules coding style, include appropriate comments, and are 
-        about 20% faster. It also includes a collide_circle_ratio function 
-        for completeness, and perhaps most importantly, fixes a bug in 
+    updates to the sprite.py collision functions that update them to match
+        the modules coding style, include appropriate comments, and are
+        about 20% faster. It also includes a collide_circle_ratio function
+        for completeness, and perhaps most importantly, fixes a bug in
         colide_mask which kept it from working correctly.  Also added unittests
         for the collision functions.  Thanks John Krukoff!
 
-    [BUG] sound crackles on windows; restored chunk size 
+    [BUG] sound crackles on windows; restored chunk size
         calculation to pre 1143
 
     Added \#!/usr/bin/env python to the top of examples that didn't have it.
@@ -102,7 +102,7 @@ Apr 13, 2008
 Apr 12, 2008
     [BUG] Fixed png saving, and saving jpeg with capital letter extensions
         Thanks Nick Irvine!
-        
+
 Apr 11, 2008
     New PixelArray.compare() method to compare two PixelArrays.
 
@@ -136,10 +136,10 @@ Mar 18, 2008
 Mar 16, 2008
     the play functions of mixer.Channel and mixer.Sound both now take keyword
       arguments, and accept a fade_ms argument that makes the sound fade in
-    
+
 Mar 9, 2008
     pygame.display.set_mode() will now respect the screen resolution settings
-      for the width or height set to 0 as supported by SDL >= 1.2.10. 
+      for the width or height set to 0 as supported by SDL >= 1.2.10.
       Thanks Lorenz Quack!
 
 Mar 5, 2008
@@ -147,29 +147,29 @@ Mar 5, 2008
         they do not seem to be thread safe.
 
     [BUG] A work around for 8 bit samples being stereo reversed with SDL_mixer.
-        Also check the return value of Mix_SetPanning, and raise an 
+        Also check the return value of Mix_SetPanning, and raise an
         error on volume errors.
 
-    [BUG] Changed default chunk size for pygame.mixer to 1024*3.  Which is 
-        the magic number which stops scratchy sounds on most systems.  
-        However it does make sounds a bit laggier... it's best provided as 
+    [BUG] Changed default chunk size for pygame.mixer to 1024*3.  Which is
+        the magic number which stops scratchy sounds on most systems.
+        However it does make sounds a bit laggier... it's best provided as
         a config item for users.
 
     Updated pygame.display.update() to release the GIL whilst doing things,
         so other threads can do things whilst it's updating the screen.
 
     Some comments to help Mac OSX people installing, and compiling pygame.
-        About bdist_mpkg in setup, and also fixed an exception message 
+        About bdist_mpkg in setup, and also fixed an exception message
         to be nicer about requiring pyobjc.
 
 Mar 3, 2008
-    [BUG] Fixed up pygame.mask.from_surface, got color key, and perpixel alpha 
+    [BUG] Fixed up pygame.mask.from_surface, got color key, and perpixel alpha
         modes reversed.
 
-    Also added better test to the mask test.  
+    Also added better test to the mask test.
         Also it wasn't testing pygame.mask.from_surface at all!
 
-    Added pygame.sprite.collide_mask to join the mask_* collision functions.  
+    Added pygame.sprite.collide_mask to join the mask_* collision functions.
         Started adding test for pygame.sprite.spritecollide.
 
 
@@ -189,7 +189,7 @@ Feb 11, 2008
     An example of using pygame with no windowing system.  Useful for webserver
       scripts, or for little utilities.
 
-    Updated mac_scrap to pass some tests, and raise NotImplementedError 
+    Updated mac_scrap to pass some tests, and raise NotImplementedError
       otherwise.
 
     Further Windows build updates:
@@ -245,8 +245,8 @@ Sep 1, 2007
      BufferProxy - which is a buffer interface only class.  Thanks Marcus!
 
 Aug 23, 2007
-    pygame.image.tostring changes from Brian Fisher. 
-      RGBA_PREMULT & ARGB_PREMULT type to image.tostring (a very 
+    pygame.image.tostring changes from Brian Fisher.
+      RGBA_PREMULT & ARGB_PREMULT type to image.tostring (a very
       nice thing for getting images into OpenGL)
 
 Aug 22, 2007
@@ -255,9 +255,9 @@ Aug 22, 2007
         Thanks Lenard Lindstrom and Brian Fisher.
 
 Aug 15, 2007
-    The sprite module has had some big changes from DR0ID.  It now has a 
+    The sprite module has had some big changes from DR0ID.  It now has a
      LayeredUpdates, and LayeredDirty groups.  For using layers when
-     rendering the sprites.  LayeredDirty is an alternative to 
+     rendering the sprites.  LayeredDirty is an alternative to
      RenderUpdates that automatically finds the best display method
      (either full screen updates, or dirty rect updates).  It's faster
      if you have sprites that don't move.  Thanks DR0ID!
@@ -281,7 +281,7 @@ May 30, 2007
       Thanks piman!
     surface.fill() now takes the same BLEND_ADD BLEND_SUB etc flags that
       surface.blit() takes.  Which makes fade to white, and fade to black
-      type operates simple and fast.  Thanks Marcus!!  
+      type operates simple and fast.  Thanks Marcus!!
     Added the GL_SWAP_CONTROL constant from SDL.  Thanks Eyal Lotem!
     Added the new blitters from Marcus.  These speed up the blend functions
       and the alpha blit function.
@@ -367,8 +367,8 @@ March 1, 2006
     A cursors.py example from Kamilche.  Thanks!
 
 February 11, 2006
-    Changed the behaviour of Clock.tick to use SDL_Delay instead of a busy 
-      loop.  Added a tick_busy_loop which uses the old behaviour.  This 
+    Changed the behaviour of Clock.tick to use SDL_Delay instead of a busy
+      loop.  Added a tick_busy_loop which uses the old behaviour.  This
       is more consistent with what people think Clock.tick() will do.
       That is, not use 100% cpu to get more accurate timing.
     testsprite.py example, which is based off the testsprite.c in SDL
@@ -404,14 +404,14 @@ September 1, 2005
 
 release_1_7_1release
 August 15, 2005
-    Fix to make Chinese fonts work better on windows.  
+    Fix to make Chinese fonts work better on windows.
       From retsyo  AT  eyou  Dot  com.
     Fix for Channel.set_volume() to not use panning if seting overall volume.
     Made setup put in missing files into the source distribution.
     Fix for fastevents example on linux.
 
 August 10, 2005
-    Fix for overlay.c to compile in windows.  
+    Fix for overlay.c to compile in windows.
     Fixed some warnings for font, and rotozoom with gcc4.
     Added an example for fastevents.
     Fix for config_unix.py with wrong paths for /usr/local

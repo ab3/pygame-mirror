@@ -2,21 +2,21 @@
   pygame - Python Game Library
   Copyright (C) 2000-2001  Pete Shinners
   Copyright (C) 2007 Marcus von Appen
-  
+
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
   version 2 of the License, or (at your option) any later version.
-  
+
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   Library General Public License for more details.
-  
+
   You should have received a copy of the GNU Library General Public
   License along with this library; if not, write to the Free
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-  
+
   Pete Shinners
   pete@shinners.org
 */
@@ -101,7 +101,7 @@
 
 
 
-#if SDL_BYTEORDER == SDL_LIL_ENDIAN               
+#if SDL_BYTEORDER == SDL_LIL_ENDIAN
 #define SET_OFFSETS_24(or, og, ob, fmt)           \
     {                                             \
     or = (fmt->Rshift == 0 ? 0 :                  \
@@ -328,11 +328,11 @@ int
 surface_fill_blend (SDL_Surface *surface, SDL_Rect *rect, Uint32 color,
                     int blendargs);
 
-int 
+int
 pygame_AlphaBlit (SDL_Surface * src, SDL_Rect * srcrect,
                   SDL_Surface * dst, SDL_Rect * dstrect, int the_args);
 
-int 
+int
 pygame_Blit (SDL_Surface * src, SDL_Rect * srcrect,
              SDL_Surface * dst, SDL_Rect * dstrect, int the_args);
 

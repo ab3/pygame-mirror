@@ -227,7 +227,7 @@ _init (int freq, int size, int stereo, int chunk)
         /* A bug in sdl_mixer where the stereo is reversed for 8 bit.
            So we use this CPU hogging effect to reverse it for us.
            Hopefully this bug is fixed in SDL_mixer 1.2.9
-        printf("MIX_MAJOR_VERSION :%d: MIX_MINOR_VERSION :%d: MIX_PATCHLEVEL :%d: \n", 
+        printf("MIX_MAJOR_VERSION :%d: MIX_MINOR_VERSION :%d: MIX_PATCHLEVEL :%d: \n",
                MIX_MAJOR_VERSION, MIX_MINOR_VERSION, MIX_PATCHLEVEL);
         */
 
@@ -346,10 +346,10 @@ snd_play (PyObject* self, PyObject* args, PyObject* kwargs)
     char *kwids[] = { "loops", "maxtime", "fade_ms", NULL };
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "|iii", kwids, &loops, &playtime, &fade_ms))
        return NULL;
-    
+
     if (fade_ms > 0)
-    {	
-    	channelnum = Mix_FadeInChannelTimed (-1, chunk, loops, fade_ms, playtime);    	
+    {
+    	channelnum = Mix_FadeInChannelTimed (-1, chunk, loops, fade_ms, playtime);
     }
     else
     {
@@ -546,7 +546,7 @@ chan_play (PyObject* self, PyObject* args, PyObject* kwargs)
     int loops = 0, playtime = -1, fade_ms = 0;
 
     char *kwids[] = { "Sound", "loops", "maxtime", "fade_ms", NULL };
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!|iii", kwids, &PySound_Type, &sound, 
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O!|iii", kwids, &PySound_Type, &sound,
                                      &loops, &playtime, &fade_ms))
        return NULL;
     chunk = PySound_AsChunk (sound);
@@ -677,7 +677,7 @@ chan_set_volume (PyObject* self, PyObject* args)
 
         if(!Mix_SetPanning(channelnum, left, right)) {
             return RAISE (PyExc_SDLError, Mix_GetError());
-        } 
+        }
     }
     else
     {
@@ -976,13 +976,13 @@ sound_init (PyObject* self, PyObject* arg, PyObject* kwarg)
     PyObject* file;
     char* name = NULL;
     Mix_Chunk* chunk = NULL;
-    
+
     ((PySoundObject*)self)->chunk = NULL;
 
     if (!PyArg_ParseTuple (arg, "O", &file))
         return -1;
 
-    if (!SDL_WasInit (SDL_INIT_AUDIO)) 
+    if (!SDL_WasInit (SDL_INIT_AUDIO))
     {
         RAISE (PyExc_SDLError, "mixer system not initialized");
         return -1;
@@ -1011,7 +1011,7 @@ sound_init (PyObject* self, PyObject* arg, PyObject* kwarg)
             Py_END_ALLOW_THREADS;
         }
     }
-    
+
     if (!chunk)
     {
         const void *buf;
@@ -1040,7 +1040,7 @@ sound_init (PyObject* self, PyObject* arg, PyObject* kwarg)
         else
             PyErr_Clear ();
     }
-    
+
     if (!chunk)
     {
         SDL_RWops *rw;
@@ -1061,7 +1061,7 @@ sound_init (PyObject* self, PyObject* arg, PyObject* kwarg)
         RAISE (PyExc_SDLError, SDL_GetError ());
         goto error;
     }
-        
+
     ((PySoundObject*)self)->chunk = chunk;
 #if PY3
     Py_DECREF (file);
